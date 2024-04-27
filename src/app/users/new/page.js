@@ -1,6 +1,13 @@
+import Nav from "../components/Nav"
+
 function page (){
     return(
-        <div>Newuserpage</div>
+        <div>
+            <Nav/>
+            <p>Newuserpage</p>
+       
+
+        </div>
     )
 }
 export default page;
