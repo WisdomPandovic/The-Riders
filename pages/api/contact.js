@@ -1,10 +1,9 @@
-// app/api/contacts.js
 import mongoose from 'mongoose';
-import Contact  from '../../src/app/models/contact'; // Import the contact model
+import Contact  from '../../src/app/models/contact'; 
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/nextjs_apps');
+    await mongoose.connect('mongodb://localhost:27017/rider_app');
     console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);

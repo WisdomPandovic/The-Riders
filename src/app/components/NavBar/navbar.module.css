@@ -1,0 +1,19 @@
+  .navbar {
+    background-color: bisque;
+    padding: 20px;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .nav_links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .logoText{
+    color: rgb(185, 17, 17) !important;
+  }

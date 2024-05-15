@@ -1,0 +1,19 @@
+footer{
+    background-color: #B99470;
+    padding: 40px !important;
+  }
+
+  form input{
+    border: 1px solid white !important;
+    background-color: transparent !important;
+    color: white;
+    border-radius: 5px !important;
+  }
+
+  .copyright h2{
+    font-size: 1em;
+  }
+
+  .custom-bg{
+    background-color: #6B7769;
+  }
