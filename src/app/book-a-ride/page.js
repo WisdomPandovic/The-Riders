@@ -32,16 +32,19 @@ function page() {
       </div>
 
       <BackgroundTextComponent />
-     <div className="container mt-5">
-      <div className="row">
-      <div className="col-md-8">
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-8">
             <h2>Book a ride for your special need.</h2>
           </div>
-      <div className="col-md-6">
-        <SpecialBooking />
+          <div className="col-md-6">
+            <SpecialBooking />
+          </div>
+          <div className="col-md-6 d-flex justify-content-center align-center text-center">
+            <p>lorem dsdhi dhibcuia </p>
+          </div>
+        </div>
       </div>
-      </div>
-     </div>
     </div>
   );
 }
