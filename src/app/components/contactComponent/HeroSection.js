@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <div className={`${styles['hero-section']} text-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="container">
-        <h1 className="text-success text-uppercase l-spacing">Welcome to Our Contact Section</h1>
+        <h1 className="text-white text-uppercase l-spacing">Welcome to Our Contact Section</h1>
       </div>
     </div>
   );

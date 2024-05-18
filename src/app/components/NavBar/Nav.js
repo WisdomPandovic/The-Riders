@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand text-uppercase" href="/">
+        <a className="navbar-brand text-uppercase" href="/home">
           {/* <img src="/logo.svg" alt="Logo" width="30" height="30" className="d-inline-block align-top" /> */}
           The Ri<span className={styles.logoText}>ders</span>
         </a>
@@ -13,7 +13,7 @@ function Nav() {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="/">Home</a>
+              <a className="nav-link" href="/home">Home</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/about">About</a>

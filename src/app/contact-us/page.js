@@ -4,6 +4,11 @@ import { FaCheckCircle } from 'react-icons/fa';
 import { FaCar, FaPlane, FaCalendarAlt, FaLuggageCart, FaMapMarkerAlt, FaMoneyBillAlt, FaClock, FaHeadset } from 'react-icons/fa';
 
 function page() {
+
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const location = 'Abuja, NG'; 
+  const mapSrc = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(location)}&key=${googleMapsApiKey}`;
+
   return (
 <div>
 <HeroSection/>
@@ -58,7 +63,7 @@ function page() {
           height="100%"
           frameBorder="0"
           style={{ border: 0 }}
-          src={`https://www.google.com/maps/embed/v1/place?q=abuja_id&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
+         src={mapSrc}
           allowFullScreen
         ></iframe>
       </div>

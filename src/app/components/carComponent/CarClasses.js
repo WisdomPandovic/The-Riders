@@ -6,13 +6,22 @@ import { useState, useEffect } from 'react';
 function CarClasses() {
 
     const [vehicles, setVehicles] = useState([]);
+    const [executives, setExecutive] = useState([]);
+    const [suvs, setSuv] = useState([]);
 
     useEffect(() => {
-        // Fetch vehicle data of type "First class" from the API
-        fetch('/api/vehicle?type=First class')
+        // Fetch vehicle data from the API
+        fetch('/api/vehicle')
             .then(response => response.json())
             .then(data => {
-                setVehicles(data);
+                // Filter vehicles based on type
+                const firstClassVehicles = data.filter(vehicle => vehicle.type === "First class");
+                const executiveClassVehicles = data.filter(vehicle => vehicle.type === "Executive Class");
+                const suvClassVehicles = data.filter(vehicle => vehicle.type === "SUV Class");
+                // Set state for each type of vehicles
+                setVehicles(firstClassVehicles);
+                setExecutive(executiveClassVehicles);
+                setSuv(suvClassVehicles);
             })
             .catch(error => console.error('Error fetching vehicle data:', error));
     }, []);
@@ -20,7 +29,7 @@ function CarClasses() {
     return (
         <div>
             <div className="container mt-5 mb-5 ">
-                <h2 className={styles.customIconColor}>Our Core Classes</h2>
+                {/* <h2 className={styles.customIconColor}>Our Core Classes</h2>
                 <div className="row mt-4">
                     <div className="col-md-4">
                         <img src="/images/comfort.jpg" alt="Service 1" className={styles.carImage} />
@@ -73,9 +82,9 @@ function CarClasses() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <h2 className={`mt-5 ${styles.customColorGray}`}>Other Classes</h2>
+                {/* <h2 className={`mt-5 ${styles.customColorGray}`}>Other Classes</h2>
                 <div className="row mt-4">
                     <div className="col-md-4">
                         <img src="/images/comfort.jpg" alt="Service 1" className={styles.carImage} />
@@ -128,7 +137,7 @@ function CarClasses() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div className="container mt-5 mb-5">
@@ -150,6 +159,58 @@ function CarClasses() {
                                 <div className='d-flex align-items-center ms-5'>
                                     <FaSuitcase className={`${styles.grayDark} mr-2`} />
                                     <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {vehicle.luggage}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="container mt-5 mb-5">
+                <h2 className={styles.customIconColor}>Executive Classes</h2>
+                <div className="row mt-4">
+                    {executives.map(executive => (
+                        <div className="col-md-4" key={executive._id}>
+                            <img src={`/uploads/${executive.image}`} alt={executive.name} className={styles.carImage} />
+                            <p className={styles.customColorGray}>{executive.type}</p>
+                            <p className={`mt-2 ${styles.ourClass} mb-0`}>{executive.name}</p>
+
+
+                            <div className='d-flex mt-3'>
+                                <div className='d-flex align-items-center'>
+                                    <FaUsers className={`${styles.grayDark} mr-2`} />
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {executive.passenger}</p>
+                                </div>
+
+                                <div className='d-flex align-items-center ms-5'>
+                                    <FaSuitcase className={`${styles.grayDark} mr-2`} />
+                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {executive.luggage}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="container mt-5 mb-5">
+                <h2 className={styles.customIconColor}>Suv Classes</h2>
+                <div className="row mt-4">
+                    {suvs.map(suv => (
+                        <div className="col-md-4" key={suv._id}>
+                            <img src={`/uploads/${suv.image}`} alt={suv.name} className={styles.carImage} />
+                            <p className={styles.customColorGray}>{suv.type}</p>
+                            <p className={`mt-2 ${styles.ourClass} mb-0`}>{suv.name}</p>
+
+
+                            <div className='d-flex mt-3'>
+                                <div className='d-flex align-items-center'>
+                                    <FaUsers className={`${styles.grayDark} mr-2`} />
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {suv.passenger}</p>
+                                </div>
+
+                                <div className='d-flex align-items-center ms-5'>
+                                    <FaSuitcase className={`${styles.grayDark} mr-2`} />
+                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {suv.luggage}</p>
                                 </div>
                             </div>
                         </div>
