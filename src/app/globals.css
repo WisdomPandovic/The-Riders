@@ -69,6 +69,10 @@ body{
   color: #B99470;
 }
 
+.review-desc{
+  font-size: 12px;
+}
+
 @media (max-width: 576px) {
   .contact-text h2{
     font-size: 2rem;

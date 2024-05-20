@@ -1,0 +1,59 @@
+.starRating {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .starRating button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .starRating .on {
+    color: gold;
+  }
+  
+  .starRating .off {
+    color: grey;
+  }
+
+  .myInputClass {
+    width: 100%;
+    border: 2px solid #B99470 !important;
+    background-color: transparent !important;
+    color: #353535;
+    border-radius: 5px !important;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .myTextareaClass {
+    width: 100%;
+    border: 2px solid #B99470 !important;
+    background-color: transparent !important;
+    color: #353535;
+    border-radius: 5px !important;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+
+  .myButton {
+    background-color: #B99470;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .myButtonSignup {
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+  }

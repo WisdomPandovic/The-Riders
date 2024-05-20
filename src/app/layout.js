@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/app/components/NavBar/Nav";
 import Footer from "@/app/components/footer/Footer";
+import ImportBsJS from "@/app/importBsJS";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+      <ImportBsJS />
         <Nav/>
         {children}
         <Footer/>

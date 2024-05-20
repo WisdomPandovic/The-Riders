@@ -8,6 +8,7 @@ function CarClasses() {
     const [vehicles, setVehicles] = useState([]);
     const [executives, setExecutive] = useState([]);
     const [suvs, setSuv] = useState([]);
+    const [van, setVan] = useState([]);
 
     useEffect(() => {
         // Fetch vehicle data from the API
@@ -18,10 +19,12 @@ function CarClasses() {
                 const firstClassVehicles = data.filter(vehicle => vehicle.type === "First class");
                 const executiveClassVehicles = data.filter(vehicle => vehicle.type === "Executive Class");
                 const suvClassVehicles = data.filter(vehicle => vehicle.type === "SUV Class");
+                const vanClassVehicles = data.filter(vehicle => vehicle.type === "VAN");
                 // Set state for each type of vehicles
                 setVehicles(firstClassVehicles);
                 setExecutive(executiveClassVehicles);
                 setSuv(suvClassVehicles);
+                setVan(vanClassVehicles);
             })
             .catch(error => console.error('Error fetching vehicle data:', error));
     }, []);
@@ -144,7 +147,7 @@ function CarClasses() {
                 <h2 className={styles.customIconColor}>Our First Classes</h2>
                 <div className="row mt-4">
                     {vehicles.map(vehicle => (
-                        <div className="col-md-4" key={vehicle._id}>
+                        <div className="col-lg-4 col-md-6" key={vehicle._id}>
                             <img src={`/uploads/${vehicle.image}`} alt={vehicle.name} className={styles.carImage} />
                             <p className={styles.customColorGray}>{vehicle.type}</p>
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{vehicle.name}</p>
@@ -170,7 +173,7 @@ function CarClasses() {
                 <h2 className={styles.customIconColor}>Executive Classes</h2>
                 <div className="row mt-4">
                     {executives.map(executive => (
-                        <div className="col-md-4" key={executive._id}>
+                        <div className="col-lg-4 col-md-6" key={executive._id}>
                             <img src={`/uploads/${executive.image}`} alt={executive.name} className={styles.carImage} />
                             <p className={styles.customColorGray}>{executive.type}</p>
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{executive.name}</p>
@@ -196,7 +199,33 @@ function CarClasses() {
                 <h2 className={styles.customIconColor}>Suv Classes</h2>
                 <div className="row mt-4">
                     {suvs.map(suv => (
-                        <div className="col-md-4" key={suv._id}>
+                        <div className="col-lg-4 col-md-6" key={suv._id}>
+                            <img src={`/uploads/${suv.image}`} alt={suv.name} className={styles.carImage} />
+                            <p className={styles.customColorGray}>{suv.type}</p>
+                            <p className={`mt-2 ${styles.ourClass} mb-0`}>{suv.name}</p>
+
+
+                            <div className='d-flex mt-3'>
+                                <div className='d-flex align-items-center'>
+                                    <FaUsers className={`${styles.grayDark} mr-2`} />
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {suv.passenger}</p>
+                                </div>
+
+                                <div className='d-flex align-items-center ms-5'>
+                                    <FaSuitcase className={`${styles.grayDark} mr-2`} />
+                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {suv.luggage}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="container mt-5 mb-5">
+                <h2 className={styles.customIconColor}>Van Classes</h2>
+                <div className="row mt-4">
+                    {van.map(suv => (
+                        <div className="col-lg-4 col-md-6" key={suv._id}>
                             <img src={`/uploads/${suv.image}`} alt={suv.name} className={styles.carImage} />
                             <p className={styles.customColorGray}>{suv.type}</p>
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{suv.name}</p>
