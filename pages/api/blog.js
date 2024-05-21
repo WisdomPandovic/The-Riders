@@ -55,21 +55,24 @@ async function handler(req, res) {
   try {
     switch (req.method) {
       case 'GET':
-        // Check if an ID is provided in the URL
+        // Check if an ID is provided in the URL parameter
         if (req.query.id) {
           console.log('Fetching blog post with ID:', req.query.id); 
           const blog = await Blog.findById(req.query.id);
-          if (blog) { // Check if blog is found (optional)
+          if (blog) { // Check if blog is found
+            console.log('Blog post found:', blog);
             return res.json(blog); // Return the fetched blog
           } else {
-            // Handle case where ID doesn't exist (optional)
+            console.log('Blog post not found');
             return res.status(404).json({ message: 'Blog post not found' });
           }
         } else {
+          console.log('Fetching all blog posts');
           const blogs = await Blog.find();
           return res.json(blogs);
-        }      
+        }
       case 'POST':
+        console.log('Processing POST request');
         upload.single('image')(req, res, async (err) => {
           if (err) {
             console.error('Multer error:', err);

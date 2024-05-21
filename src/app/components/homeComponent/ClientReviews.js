@@ -27,10 +27,10 @@ const ClientReviews = () => {
       <p className={styles.customIconColor}>Reviews</p>
       <h2 className={styles.customColorGray}>What our clients say about us</h2>
       <div className="row mt-5">
-        <div className="col-md-4">
+        <div className="col-lg-4 col-md-12 mb-3">
           <img src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} />
         </div>
-        <div className="col-md-8">
+        <div className="col-lg-8 col-md-12">
           {/* <div className='row mb-2 review-desc'>
             <div className="col-md-2 mt-3">
               <img src="/images/customer-photos (4).jpg" alt="Client" className={styles.clientImages} />

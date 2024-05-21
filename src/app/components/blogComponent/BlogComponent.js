@@ -27,12 +27,10 @@ const BlogComponent = () => {
 
     return (
         <div className="container mt-5 mb-5">
-            <p>Blog</p>
+            <p className="pt-5">Blog</p>
             <h2>News & Event</h2>
 
             <div className="row mt-4">
-
-
                 {blogs.map((blog) => (
                     <div className="col-lg-4 col-md-6 mb-3" key={blog._id}>
                         <div className={styles.card} >
@@ -43,9 +41,14 @@ const BlogComponent = () => {
                                 <p className={`${styles.cardText} mb-4 `}>{blog.header}</p>
                             </div>
 
-                            <a href={`/blog/${blog._id}`} className={`nav-link mb-3 p-3 ${styles.readMore}`}>
+                            {/* <a href={`/blog/${blog._id}`} className={`nav-link mb-3 p-3 ${styles.readMore}`}>
                                 <p>Read More <AiOutlineArrowRight size={20} color="red" /></p>
-                            </a>
+                            </a> */}
+                            <Link href={`/blog/${blog._id}`}>
+                                <div className={`nav-link mb-3 p-3 ${styles.readMore}`}>
+                                    <p>Read More <AiOutlineArrowRight size={20} color="red" /></p>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 ))}
