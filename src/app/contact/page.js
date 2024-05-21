@@ -1,9 +1,7 @@
-import Nav from "../components/Nav";
-import CreateContactForm from "../components/CreateContactForm";
+import CreateContactForm from "../../app/components/contactComponent/CreateContactForm";
 function page() {
   return (
     <div>
-      <Nav />
       <h3 className="user-header">GET IN TOUCH</h3>
       <p className="text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
