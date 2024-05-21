@@ -46,7 +46,7 @@ function page() {
           <div className="col-md-6 d-flex justify-content-center align-items-center">
             <div>
             <h3>Special Accommodation Requests</h3>
-            <p>At our service, we understand that every passenger has unique needs and preferences. To ensure a comfortable and convenient experience for all our customers, we are pleased to offer a range of special accommodation options. Whether you require a wheelchair-accessible vehicle, a pet-friendly vehicle, or have any other specific requirements, we're here to assist you. </p>
+            <p>At our service, we understand that every passenger has unique needs and preferences. To ensure a comfortable and convenient experience for all our customers, we are pleased to offer a range of special accommodation options. Whether you require a wheelchair-accessible vehicle, a pet-friendly vehicle, or have any other specific requirements, we&apos;re here to assist you. </p>
             </div>
           </div>
         </div>

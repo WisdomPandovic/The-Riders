@@ -6,7 +6,7 @@ import { HiOutlineShieldCheck } from 'react-icons/hi';
 function page() {
     return (
         <div className="container contact-text mt-5 mb-5">
-            <div className=" mb-5">
+            <div className="mb-5">
                 <h2>Be a chauffeur with The Riders</h2>
             </div>
 
@@ -14,14 +14,14 @@ function page() {
                 <div className="col-md-4">
                     <FaMoneyBillAlt size={70} color="black" /> 
                     <p className="mt-2 bold customIconColor">Earn anytime, anywhere</p>
-                    <p className="customColorGray ">Drive as much as you'd like and earn accordingly. The more you drive, the more you can earn. Additionally, your earnings are automatically deposited on a weekly basis</p>
+                    <p className="customColorGray ">Drive as much as you&apos;d like and earn accordingly. The more you drive, the more you can earn. Additionally, your earnings are automatically deposited on a weekly basis</p>
                 </div>
 
 
                 <div className="col-md-4">
                     <IoMdCalendar size={70} color="black" />
                     <p className="mt-2 bold customIconColor">Set your own schedule</p>
-                    <p className="customColorGray ">Choose to drive whenever it suits your schedule. There's no fixed office or supervisor. This means you have the flexibility to start and stop according to your own timetable—because with the Riders, you're the one calling the shots.</p>
+                    <p className="customColorGray ">Choose to drive whenever it suits your schedule. There's no fixed office or supervisor. This means you have the flexibility to start and stop according to your own timetable—because with the Riders, you&apos;re the one calling the shots.</p>
                 </div>
 
                 <div className="col-md-4">
