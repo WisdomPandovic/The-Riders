@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './about.module.css';
+import Image from 'next/image';
 
 const AboutUsComponent = () => {
     return (
@@ -19,11 +20,17 @@ const AboutUsComponent = () => {
                 <div className="col-lg-6 col-md-12">
                     <div className="row ">
                         <div className='col-md-5 mb-3'>
-                            <img src="/images/about-img-2.jpg" alt="Smaller Image" className={styles.smallerImage} />
+                            <Image src="/images/about-img-2.jpg" alt="Smaller Image" className={styles.smallerImage}  width="100"  // Set width to 100% to stretch to container's width
+  height={400}  // Fixed height of 400px
+  layout="responsive"
+          />
                         </div>
 
                         <div className="col-md-7 mb-3">
-                            <img src="/images/about-us.jpg" alt="Smaller Image" className={styles.biggerImage} />
+                            <Image src="/images/about-us.jpg" alt="Smaller Image" className={styles.biggerImage}  width="100"  // Set width to 100% to stretch to container's width
+  height={400}  // Fixed height of 400px
+  layout="responsive"
+        />
                         </div>
                     </div>
                 </div>

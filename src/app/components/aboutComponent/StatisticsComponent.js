@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './about.module.css';
+import Image from 'next/image';
 
 const StatisticsComponent = () => {
     // Sample data for statistics
@@ -12,7 +13,6 @@ const StatisticsComponent = () => {
 
     return (
         <div className='container mt-5 mb-5'>
-
             <div className={`row ${styles.statisticsContainer}`}>
                 {statisticsData.map((data, index) => (
                     <div key={index} className={`col-md-3 ${styles.statistic}`}>
@@ -24,13 +24,52 @@ const StatisticsComponent = () => {
 
             <div className='text-center pb-4 mt-5'>
                 <h3 className={styles.count}>Our Clients</h3>
-                <p className={styles.text}>Trusted by 5000+ of the world’s most customer-centric companies. Combines your communications <br></br>channels on one platform so you can streamline customer engagement.</p>
+                <p className={styles.text}>
+                    Trusted by 5000+ of the world’s most customer-centric companies. Combines your communications <br />
+                    channels on one platform so you can streamline customer engagement.
+                </p>
 
                 <div className='row mt-5'>
-                    <div className='col-lg-3 col-md-6'><img src="/images/partners-logo-2.png" alt="Client Logo" className={styles.clientLogo} /></div>
-                    <div className='col-lg-3 col-md-6'><img src="/images/partners-logo-3.png" alt="Client" className={styles.clientLogo} /></div>
-                    <div className='col-lg-3 col-md-6'><img src="/images/partners-logo-4.png" alt="Client" className={styles.clientLogo} /></div>
-                    <div className='col-lg-3 col-md-6'><img src="/images/partners-logo-5.png" alt="Client" className={styles.clientLogo} /></div>
+                    <div className='col-lg-3 col-md-6'>
+                        <div className={styles.imageContainer}>
+                            <Image
+                                src="/images/partners-logo-2.png"
+                                alt="Client Logo"
+                                fill
+                                className={styles.clientLogo}
+                            />
+                        </div>
+                    </div>
+                    <div className='col-lg-3 col-md-6'>
+                        <div className={styles.imageContainer}>
+                            <Image
+                                src="/images/partners-logo-3.png"
+                                alt="Client Logo"
+                                fill
+                                className={styles.clientLogo}
+                            />
+                        </div>
+                    </div>
+                    <div className='col-lg-3 col-md-6'>
+                        <div className={styles.imageContainer}>
+                            <Image
+                                src="/images/partners-logo-4.png"
+                                alt="Client Logo"
+                                fill
+                                className={styles.clientLogo}
+                            />
+                        </div>
+                    </div>
+                    <div className='col-lg-3 col-md-6'>
+                        <div className={styles.imageContainer}>
+                            <Image
+                                src="/images/partners-logo-5.png"
+                                alt="Client Logo"
+                                fill
+                                className={styles.clientLogo}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

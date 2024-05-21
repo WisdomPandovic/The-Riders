@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from './blog.module.css';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const BlogComponent = () => {
 
@@ -34,16 +35,15 @@ const BlogComponent = () => {
                 {blogs.map((blog) => (
                     <div className="col-lg-4 col-md-6 mb-3" key={blog._id}>
                         <div className={styles.card} >
-
-                            <img src={`/uploads/${blog.image}`} alt="" className={styles.cardImg} />
+                        <div className={styles.imageContainer}>
+                            {/* <img src={`/uploads/${blog.image}`} alt="" className={styles.cardImg} /> */}
+                            <Image src={`/uploads/${blog.image}`} alt="" fill objectFit="cover" />
+                            </div>
                             <div className={`${styles.cardBody} p-3`}>
                                 <h5 className={`${styles.cardTitle} `}>{blog.title}</h5>
                                 <p className={`${styles.cardText} mb-4 `}>{blog.header}</p>
                             </div>
 
-                            {/* <a href={`/blog/${blog._id}`} className={`nav-link mb-3 p-3 ${styles.readMore}`}>
-                                <p>Read More <AiOutlineArrowRight size={20} color="red" /></p>
-                            </a> */}
                             <Link href={`/blog/${blog._id}`}>
                                 <div className={`nav-link mb-3 p-3 ${styles.readMore}`}>
                                     <p>Read More <AiOutlineArrowRight size={20} color="red" /></p>

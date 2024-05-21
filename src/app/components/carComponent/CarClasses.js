@@ -2,6 +2,7 @@
 import styles from './car.module.css';
 import { FaUsers, FaSuitcase } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 function CarClasses() {
 
@@ -148,20 +149,26 @@ function CarClasses() {
                 <div className="row mt-4">
                     {vehicles.map(vehicle => (
                         <div className="col-lg-4 col-md-6" key={vehicle._id}>
-                            <img src={`/uploads/${vehicle.image}`} alt={vehicle.name} className={styles.carImage} />
-                            <p className={styles.customColorGray}>{vehicle.type}</p>
+                            <div className={styles.imageContainer}>
+                                <Image
+                                    src={`/uploads/${vehicle.image}`}
+                                    alt={vehicle.name}
+                                    layout="responsive"
+                                    width={400}
+                                    height={300}
+                                    className={styles.carImage}
+                                />
+                            </div>
+                            {/* <p className={styles.customColorGray}>{vehicle.type}</p> */}
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{vehicle.name}</p>
-
-
                             <div className='d-flex mt-3'>
                                 <div className='d-flex align-items-center'>
                                     <FaUsers className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {vehicle.passenger}</p>
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>{vehicle.passenger}</p>
                                 </div>
-
                                 <div className='d-flex align-items-center ms-5'>
                                     <FaSuitcase className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {vehicle.luggage}</p>
+                                    <p className={`${styles.custom} mb-0 ms-2`}>× {vehicle.luggage}</p>
                                 </div>
                             </div>
                         </div>
@@ -174,20 +181,26 @@ function CarClasses() {
                 <div className="row mt-4">
                     {executives.map(executive => (
                         <div className="col-lg-4 col-md-6" key={executive._id}>
-                            <img src={`/uploads/${executive.image}`} alt={executive.name} className={styles.carImage} />
-                            <p className={styles.customColorGray}>{executive.type}</p>
+                            <div className={styles.imageContainer}>
+                                <Image
+                                    src={`/uploads/${executive.image}`}
+                                    alt={executive.name}
+                                    layout="responsive"
+                                    width={400}
+                                    height={300}
+                                    className={styles.carImage}
+                                />
+                            </div>
+                            {/* <p className={styles.customColorGray}>{executive.type}</p> */}
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{executive.name}</p>
-
-
                             <div className='d-flex mt-3'>
                                 <div className='d-flex align-items-center'>
                                     <FaUsers className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {executive.passenger}</p>
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>{executive.passenger}</p>
                                 </div>
-
                                 <div className='d-flex align-items-center ms-5'>
                                     <FaSuitcase className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {executive.luggage}</p>
+                                    <p className={`${styles.custom} mb-0 ms-2`}>× {executive.luggage}</p>
                                 </div>
                             </div>
                         </div>
@@ -200,20 +213,26 @@ function CarClasses() {
                 <div className="row mt-4">
                     {suvs.map(suv => (
                         <div className="col-lg-4 col-md-6" key={suv._id}>
-                            <img src={`/uploads/${suv.image}`} alt={suv.name} className={styles.carImage} />
-                            <p className={styles.customColorGray}>{suv.type}</p>
+                            <div className={styles.imageContainer}>
+                                <Image
+                                    src={`/uploads/${suv.image}`}
+                                    alt={suv.name}
+                                    layout="responsive"
+                                    width={400}
+                                    height={300}
+                                    className={styles.carImage}
+                                />
+                            </div>
+                            {/* <p className={styles.customColorGray}>{suv.type}</p> */}
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{suv.name}</p>
-
-
                             <div className='d-flex mt-3'>
                                 <div className='d-flex align-items-center'>
                                     <FaUsers className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {suv.passenger}</p>
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>{suv.passenger}</p>
                                 </div>
-
                                 <div className='d-flex align-items-center ms-5'>
                                     <FaSuitcase className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {suv.luggage}</p>
+                                    <p className={`${styles.custom} mb-0 ms-2`}> × {suv.luggage}</p>
                                 </div>
                             </div>
                         </div>
@@ -226,20 +245,26 @@ function CarClasses() {
                 <div className="row mt-4">
                     {van.map(suv => (
                         <div className="col-lg-4 col-md-6" key={suv._id}>
-                            <img src={`/uploads/${suv.image}`} alt={suv.name} className={styles.carImage} />
-                            <p className={styles.customColorGray}>{suv.type}</p>
+                            <div className={styles.imageContainer}>
+                                <Image
+                                    src={`/uploads/${suv.image}`}
+                                    alt={suv.name}
+                                    layout="responsive"
+                                    width={400}
+                                    height={300}
+                                    className={styles.carImage}
+                                />
+                            </div>
+                            {/* <p className={styles.customColorGray}>{suv.type}</p> */}
                             <p className={`mt-2 ${styles.ourClass} mb-0`}>{suv.name}</p>
-
-
                             <div className='d-flex mt-3'>
                                 <div className='d-flex align-items-center'>
                                     <FaUsers className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.grayDark} mb-0 ms-2`}>Passengers {suv.passenger}</p>
+                                    <p className={`${styles.grayDark} mb-0 ms-2`}>{suv.passenger}</p>
                                 </div>
-
                                 <div className='d-flex align-items-center ms-5'>
                                     <FaSuitcase className={`${styles.grayDark} mr-2`} />
-                                    <p className={`${styles.custom} mb-0 ms-2`}>Luggage × {suv.luggage}</p>
+                                    <p className={`${styles.custom} mb-0 ms-2`}> × {suv.luggage}</p>
                                 </div>
                             </div>
                         </div>

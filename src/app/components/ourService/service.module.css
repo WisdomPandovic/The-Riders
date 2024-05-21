@@ -29,9 +29,14 @@
     color: white; 
   }
 
-.serviceImage {
+  .imageContainer {
+    position: relative;
     width: 100%;
-    height: 200px;
+    height: 200px; /* Adjust height as needed */
+  }
+  
+  .serviceImage {
+    object-fit: cover; /* This ensures the image covers the container without distortion */
   }
   
   .gray-dark{

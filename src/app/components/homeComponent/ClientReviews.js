@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './home.module.css';
 import axios from 'axios';
+import Image from 'next/image';
 
 const ClientReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -28,7 +29,9 @@ const ClientReviews = () => {
       <h2 className={styles.customColorGray}>What our clients say about us</h2>
       <div className="row mt-5">
         <div className="col-lg-4 col-md-12 mb-3">
-          <img src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} />
+          <Image src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} width={100}   // Set width to 100% to stretch to container's width
+            height={400}  // Fixed height of 400px
+            layout="responsive" />
         </div>
         <div className="col-lg-8 col-md-12">
           {/* <div className='row mb-2 review-desc'>
@@ -57,7 +60,7 @@ const ClientReviews = () => {
 
           <div className='row mb-2 review-desc'>
             <div className="col-md-2 mt-3">
-              <img src="/images/customer-photos (5).jpg" alt="Client" className={styles.clientImages} />
+              <Image src="/images/customer-photos (5).jpg" alt="Client" className={styles.clientImages} />
               <p className={styles.customColorGray}>Malik Berry</p>
             </div>
             <div className="col-md-10 ">
@@ -71,7 +74,15 @@ const ClientReviews = () => {
 
             <div className="row mb-2 review-desc" key={index}>
               <div className="col-md-2 mt-3">
-                <img src={`/uploads/${review.image}`} alt="Client" className={styles.clientImages} />
+                <img
+                  src={`/uploads/${review.image}`}
+                  alt="Client"
+                  width={50}  // Fixed width of 50px
+  height={50}  // Fixed height of 50px
+  layout="fixed"
+                  className={styles.clientImages}                
+                />
+
                 <p className={styles.customColorGray}>{typeof review.name === 'object' ? review.name.name : review.name}</p>
               </div>
               <div className="col-md-10">
