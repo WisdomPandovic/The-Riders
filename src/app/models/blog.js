@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Define the schema for the blog model
 const blogSchema = new mongoose.Schema({
     title: { type: String, required: true },
     author: { type: String, required: true },

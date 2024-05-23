@@ -1,14 +1,13 @@
 import CreateUserForm from "../components/userComponent/CreateUserForm";
-import UserList from "../components/userComponent/UserList";
+// import UserList from "../components/userComponent/UserList";
 
 function page() {
     return (
-        <div className="container">
-            <div className="row mt-3 mb-3">
+        <div className="container mt-5">
+            <div className="row pt-5 mb-3">
                 <div className="col-md-6 pb-3">
                     <h3 className="user-header ">Create Account</h3>
                     <CreateUserForm />
-
                 </div>
 
                 <div className="col-md-6 pb-3">

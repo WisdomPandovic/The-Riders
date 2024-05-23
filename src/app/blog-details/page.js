@@ -3,7 +3,6 @@ function page (){
     return(
         <div>
            <BlogDetails/>
-
         </div>
     )
 }

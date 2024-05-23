@@ -1,12 +1,12 @@
 import CreateChauffeurForm from "../components/chauffeurComponent/CreateChauffeurForm";
-import { FaMoneyBillAlt } from 'react-icons/fa'; // Earn icon
-import { IoMdCalendar } from 'react-icons/io'; // Schedule icon
+import { FaMoneyBillAlt } from 'react-icons/fa'; 
+import { IoMdCalendar } from 'react-icons/io'; 
 import { HiOutlineShieldCheck } from 'react-icons/hi';
 
 function page() {
     return (
         <div className="container contact-text mt-5 mb-5">
-            <div className="mb-5">
+            <div className="mb-5 pt-5">
                 <h2>Be a chauffeur with The Riders</h2>
             </div>
 

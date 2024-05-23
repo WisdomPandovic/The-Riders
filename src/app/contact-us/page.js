@@ -1,7 +1,6 @@
 import CreateContactForm from "../components/contactComponent/CreateContactForm";
 import HeroSection from "../components/contactComponent/HeroSection";
-import { FaCheckCircle } from 'react-icons/fa';
-import { FaCar, FaPlane, FaCalendarAlt, FaLuggageCart, FaMapMarkerAlt, FaMoneyBillAlt, FaClock, FaHeadset } from 'react-icons/fa';
+import { FaCar, FaPlane, FaCalendarAlt} from 'react-icons/fa';
 
 function page() {
 

@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import Blog from '../../src/app/models/blog'; 
 import multer from 'multer';
 import fs from 'fs';
+import { isAdmin } from '../../src/middleware/authMiddleware';
+
 
 const app = express();
 
@@ -72,6 +74,7 @@ async function handler(req, res) {
           return res.json(blogs);
         }
       case 'POST':
+        isAdmin(req, res, async () => {
         console.log('Processing POST request');
         upload.single('image')(req, res, async (err) => {
           if (err) {
@@ -109,6 +112,7 @@ async function handler(req, res) {
 
           return res.status(201).json({ message: 'Blog created successfully!' });
         });
+      });
         break;
       default:
         res.status(405).json({ message: 'Method not allowed' });

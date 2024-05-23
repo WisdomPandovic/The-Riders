@@ -11,7 +11,6 @@ function page (){
             <TeamComponent/>
             <StatisticsComponent/>
            <ClientReviews/>
-
         </div>
     )
 }

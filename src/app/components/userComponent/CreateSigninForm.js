@@ -34,6 +34,10 @@ const CreateSigninForm = ({ onSignIn }) => {
 
       const data = await response.json();
 
+      // Save token and user data in local storage
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+
       // Call the onSignIn function passed from the parent component
       if (onSignIn) {
         onSignIn(data.user);

@@ -10,15 +10,63 @@ const CreateAirportForm = () => {
   const [facilities, setFacilities] = useState('');
   const [distanceFromCityCenter, setDistanceFromCityCenter] = useState('');
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   console.log('Form submitted!');
+
+  //   try {
+  //     const response = await fetch('/api/airport', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         name,
+  //         location,
+  //         code,
+  //         facilities: facilities.split(',').map(facility => facility.trim()),
+  //         distanceFromCityCenter: parseInt(distanceFromCityCenter),
+  //       }),
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (response.ok) {
+  //       console.log('Airport created successfully!', data);
+  //       toast.success(data.message);
+  //       setName('');
+  //       setLocation('');
+  //       setCode('');
+  //       setFacilities('');
+  //       setDistanceFromCityCenter('');
+  //     } else {
+  //       console.error('Error creating airport:', data.message);
+  //       toast.error('Error creating airport:', data.message)
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error.message);
+  //     toast.error('Error:', error.message)
+  //   }
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Form submitted!');
-
+  
     try {
+      const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+      if (!token) {
+        // Handle case where token is not found
+        console.error('Token not found');
+        toast.error('Token not found');
+        return;
+      }
+  
       const response = await fetch('/api/airport', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
         },
         body: JSON.stringify({
           name,
@@ -28,9 +76,9 @@ const CreateAirportForm = () => {
           distanceFromCityCenter: parseInt(distanceFromCityCenter),
         }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         console.log('Airport created successfully!', data);
         toast.success(data.message);
@@ -48,9 +96,10 @@ const CreateAirportForm = () => {
       toast.error('Error:', error.message)
     }
   };
+  
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form onSubmit={handleSubmit} className={`pt-5 ${styles.form}`}>
       <label htmlFor="name">Name:</label>
       <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required  className={styles.myInputClass}/>
 

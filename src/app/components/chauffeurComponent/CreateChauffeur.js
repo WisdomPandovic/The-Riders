@@ -2,10 +2,8 @@ import React from 'react';
 import CreateChauffeurForm from './CreateChauffeurForm';
 
 function CreateChauffeur() {
-  // Define the handleContactSubmit function
   const handleChauffeurSubmit = async (chauffeurData) => {
     try {
-      // Send a POST request to your contact creation API route (/api/contact)
       const response = await fetch('/api/chauffeurApplication', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -15,10 +13,8 @@ function CreateChauffeur() {
       const data = await response.json();
 
       if (response.ok) {
-        // Handle successful contact creation (e.g., display success message)
         console.log('Chauffeur created successfully!');
       } else {
-        // Handle potential errors during creation
         console.error('Error creating chauffeur', data.message);
       }
     } catch (error) {

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import styles from './chauffeur.module.css'; // Import your CSS module here
+import styles from './chauffeur.module.css'; 
 import { toast } from 'react-toastify';
 
 function CreateChauffeurForm() {
@@ -171,7 +171,7 @@ function CreateChauffeurForm() {
           id="image"
           name="image"
           accept="image/*"
-          onChange={handleImageChange} // Call handleImageChange when file is selected
+          onChange={handleImageChange} 
           required
           className={styles.myInputClass}
         />

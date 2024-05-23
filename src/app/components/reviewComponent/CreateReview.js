@@ -1,9 +1,10 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import styles from './CreateReview.module.css'; // Create a corresponding CSS module for styling
+import styles from './CreateReview.module.css'; 
+import { toast } from 'react-toastify';
 
 const CreateReview = () => {
   const [name, setName] = useState('');
@@ -12,6 +13,21 @@ const CreateReview = () => {
   const [rating, setRating] = useState(0);
   const [taxiExperience, setTaxiExperience] = useState('');
   const [image, setImage] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+      // Check if the user is logged in
+      const checkLoggedIn = async () => {
+          const token = localStorage.getItem('token');
+          if (token) {
+              setIsLoggedIn(true);
+          } else {
+              setIsLoggedIn(false);
+          }
+      };
+
+      checkLoggedIn();
+  }, []);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -28,6 +44,12 @@ const CreateReview = () => {
     formData.append('taxi_experience', taxiExperience);
     formData.append('image', image);
 
+    if (!isLoggedIn) {
+      // Display message prompting user to sign up
+      toast.error('You must be a member to create a review. Please sign up.');
+      return;
+  }
+
     try {
       const response = await axios.post('/api/review', formData, {
         headers: {
@@ -36,7 +58,8 @@ const CreateReview = () => {
       });
 
       if (response.status === 201) {
-        alert('Review submitted successfully!');
+        // alert('Review submitted successfully!');
+        toast.success('Review submitted successfully!');
         // Clear form
         setName('');
         setTitle('');
@@ -115,7 +138,10 @@ const CreateReview = () => {
           <input type="file" className="form-control" onChange={handleImageChange} />
         </div>
         <button type="submit" className={styles.myButton}>Submit Review</button><br></br>
-        <button type="submit" className={styles.myButtonSignup}>Not a member? <a href='/users' className='nav-link'>Sign Up</a></button>
+        <div className={`mt-2 ${styles.myButtonSignup} d-flex text-center justify-content-center`}>
+          <p className='m-2'>Not a member?</p>
+          <a href='/users' className='sign-link m-2'>Sign Up</a>
+        </div>
       </form>
     </div>
   );

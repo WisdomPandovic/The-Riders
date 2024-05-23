@@ -82,14 +82,14 @@ export const config = {
                         return res.status(400).json({ message: 'Missing required fields' });
                     }
                     
-                    let user = await User.findOne({ name });
+                    // let user = await User.findOne({ name });
                     
-                    if (!user) {
-                        return res.status(400).json({ message: 'No User with that name' });
-                    }
+                    // if (!user) {
+                    //     return res.status(400).json({ message: 'No User with that name' });
+                    // }
                     
                     const newReview = new Review({
-                        name: user._id,
+                        name,
                         rating,
                         title,
                         description,

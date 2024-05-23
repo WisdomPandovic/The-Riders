@@ -7,7 +7,7 @@ const rideSchema = new mongoose.Schema({
     vehicleType: { type: String, required: true },
     price: { type: Number, required: true },
     available: { type: Boolean, default: true },
-    image: { type: String } // Assuming the image is stored as a URL
+    image: { type: String } 
   });
   
   module.exports = mongoose.model('Ride', rideSchema);

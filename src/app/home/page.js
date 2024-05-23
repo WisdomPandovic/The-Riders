@@ -1,6 +1,3 @@
-// import Image from "next/image";
-// import styles from "./page.module.css";
-// import Link from 'next/link';
 import HeroSection from '../components/homeComponent/HeroSection';
 import FeaturesSection from '../components/homeComponent/FeaturesSection';
 import RideComfortSection from '../components/homeComponent/RideComfortSection';

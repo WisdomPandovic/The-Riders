@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
-    name: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    name: { type: String, required: true },
     rating: { type: Number, required: true, min: 1, max: 5 },
     title: { type: String },
     description: { type: String },
-    taxi_experience: { type: String, required: true }, // Description of the user's experience with the taxi service
-    image: { type: String }, // URL or path to the image uploaded by the user
+    taxi_experience: { type: String, required: true }, 
+    image: { type: String }, 
     created_at: { type: Date, default: Date.now }
 });
 

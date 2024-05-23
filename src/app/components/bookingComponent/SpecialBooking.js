@@ -22,6 +22,21 @@ const SpecialBooking = () => {
 
     const [vehicles, setVehicles] = useState([]);
     const [airports, setAirports] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // Check if the user is logged in
+        const checkLoggedIn = async () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+        };
+
+        checkLoggedIn();
+    }, []);
 
     useEffect(() => {
         // Fetch vehicle data from the backend API
@@ -58,6 +73,13 @@ const SpecialBooking = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!isLoggedIn) {
+            // Display message prompting user to sign up
+            toast.error('You must be a member to book a ride. Please sign up.');
+            return;
+        }
+        
         console.log('Form submitted with data:', formData);
 
         try {

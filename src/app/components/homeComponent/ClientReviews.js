@@ -10,11 +10,11 @@ const ClientReviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('/api/review'); // Replace '/api/reviews' with your API endpoint
+        const response = await axios.get('/api/review');
         response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
         const filterReview = response.data.slice(0, 3)
-        setReviews(filterReview); // Assuming the response data is an array of reviews
+        setReviews(filterReview);
       } catch (error) {
         console.error('Error fetching reviews:', error);
       }
@@ -29,8 +29,8 @@ const ClientReviews = () => {
       <h2 className={styles.customColorGray}>What our clients say about us</h2>
       <div className="row mt-5">
         <div className="col-lg-4 col-md-12 mb-3">
-          <Image src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} width={100}   // Set width to 100% to stretch to container's width
-            height={400}  // Fixed height of 400px
+          <Image src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} width={100}  
+            height={400} 
             layout="responsive" />
         </div>
         <div className="col-lg-8 col-md-12">
@@ -77,10 +77,10 @@ const ClientReviews = () => {
                 <img
                   src={`/uploads/${review.image}`}
                   alt="Client"
-                  width={50}  // Fixed width of 50px
-  height={50}  // Fixed height of 50px
-  layout="fixed"
-                  className={styles.clientImages}                
+                  width={50}
+                  height={50}
+                  layout="fixed"
+                  className={styles.clientImages}
                 />
 
                 <p className={styles.customColorGray}>{typeof review.name === 'object' ? review.name.name : review.name}</p>

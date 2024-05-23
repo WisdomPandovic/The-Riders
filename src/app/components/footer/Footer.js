@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin, FaWeixin } from 'react-icons/fa';
 import './footer.css';
 import { toast } from 'react-toastify';
@@ -107,7 +107,6 @@ const Footer = () => {
                 </div>
 
                 <div className="col-md-3">
-
                     <div className="justify-content-center align-items-center pt-5 pb-5">
                         <h5 className='pb-3'>Newsletter</h5>
                         <p>We love to share new offers and <br></br>Exclusive Promotions</p>
@@ -121,8 +120,6 @@ const Footer = () => {
                 </div>
             </div>
             <hr />
-
-
 
             <div className="copyright text-center text-white">
                 <h2>@2024 THE RIDER | All Right Reserved</h2>

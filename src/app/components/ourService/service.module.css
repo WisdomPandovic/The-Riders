@@ -32,11 +32,11 @@
   .imageContainer {
     position: relative;
     width: 100%;
-    height: 200px; /* Adjust height as needed */
+    height: 200px; 
   }
   
   .serviceImage {
-    object-fit: cover; /* This ensures the image covers the container without distortion */
+    object-fit: cover; 
   }
   
   .gray-dark{

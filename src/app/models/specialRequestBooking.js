@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const specialRequestBookingSchema = new mongoose.Schema({
-    name: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    name: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
     vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle', required: true },

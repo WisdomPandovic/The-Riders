@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import Vehicle from '../../src/app/models/vehicle';
 import multer from 'multer';
 import fs from 'fs';
+import { isAdmin } from '../../src/middleware/authMiddleware';
 
 // Create an Express app
 const app = express();
@@ -60,6 +61,7 @@ async function handler(req, res) {
         const vehicles = await Vehicle.find();
         return res.json(vehicles);
       case 'POST':
+        isAdmin(req, res, async () => {
         upload.single('image')(req, res, async (err) => {
           if (err) {
             console.error('Multer error:', err);
@@ -103,6 +105,7 @@ async function handler(req, res) {
           // Send success response
           return res.status(201).json({ message: 'Vehicle created successfully!' });
         });
+      });
         break;
       default:
         res.status(405).json({ message: 'Method not allowed' });
