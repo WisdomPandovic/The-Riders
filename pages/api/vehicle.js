@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import Vehicle from '../../src/app/models/vehicle';
 import multer from 'multer';
 import fs from 'fs';
-import { isAdmin } from '../../src/middleware/authMiddleware';
+import { verifyToken, isAdmin } from '../../src/middleware/authMiddleware';
 
 // Create an Express app
 const app = express();
@@ -53,7 +53,7 @@ export const config = {
   }
 };
 
-async function handler(req, res) {
+const handler = async (req, res) => {
   console.log('Handler function called.');
   try {
     switch (req.method) {
@@ -117,5 +117,10 @@ async function handler(req, res) {
   }
 }
 
-// Export the handler function as the default export
-export default handler;
+export default (req, res) => {
+  verifyToken(req, res, () => {
+    isAdmin(req, res, () => {
+      handler(req, res);
+    });
+  });
+};

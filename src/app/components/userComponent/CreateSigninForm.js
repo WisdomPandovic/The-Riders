@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; 
 import styles from "./user.module.css";
 import { toast } from 'react-toastify';
 
@@ -7,6 +8,7 @@ const CreateSigninForm = ({ onSignIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -45,6 +47,8 @@ const CreateSigninForm = ({ onSignIn }) => {
 
        // Display success toast
        toast.success('Sign in successful!');
+
+       router.push('/home');
 
     } catch (error) {
       console.error('Error signing in:', error);

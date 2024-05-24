@@ -40,9 +40,18 @@ function CreateAdminUserForm () {
 
   const createUser = async () => {
     try {
+      const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+      if (!token) {
+        // Handle case where token is not found
+        console.error('Token not found');
+        toast.error('Token not found');
+        return;
+      }
+
       const response = await fetch('/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        'Authorization': `Bearer ${token}`,
         body: JSON.stringify(formData),
       });
 
@@ -52,7 +61,15 @@ function CreateAdminUserForm () {
         toast.success('User created successfully!');
         setFormData({ name: '', email: '', password: '', phone: '', paymentInfo: '' });
       } else {
-        console.error('Error creating user:', data.message);
+        if (response.status === 401 && data.message === 'Token has expired') {
+          console.error('Error creating Admin user:', data.message);
+          toast.error('Session expired. Please log in again.');
+
+        } else {
+          console.error('Error creating user:', data.message);
+          toast.error('Error creating user: ' + data.message);
+        }
+      
       }
     } catch (error) {
       console.error('Error submitting form:', error);

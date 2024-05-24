@@ -88,8 +88,15 @@ const CreateAirportForm = () => {
         setFacilities('');
         setDistanceFromCityCenter('');
       } else {
-        console.error('Error creating airport:', data.message);
-        toast.error('Error creating airport:', data.message)
+        if (response.status === 401 && data.message === 'Token has expired') {
+          console.error('Error creating airport:', data.message);
+          toast.error('Session expired. Please log in again.');
+          // Redirect to login page or prompt user to log in
+        } else {
+          console.error('Error creating airport:', data.message);
+          toast.error('Error creating airport: ' + data.message);
+        }
+      
       }
     } catch (error) {
       console.error('Error:', error.message);
