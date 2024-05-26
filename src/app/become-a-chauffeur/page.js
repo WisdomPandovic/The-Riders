@@ -21,7 +21,7 @@ function page() {
                 <div className="col-md-4">
                     <IoMdCalendar size={70} color="black" />
                     <p className="mt-2 bold customIconColor">Set your own schedule</p>
-                    <p className="customColorGray ">Choose to drive whenever it suits your schedule. There's no fixed office or supervisor. This means you have the flexibility to start and stop according to your own timetable—because with the Riders, you&apos;re the one calling the shots.</p>
+                    <p className="customColorGray ">Choose to drive whenever it suits your schedule. There&apos;s no fixed office or supervisor. This means you have the flexibility to start and stop according to your own timetable—because with the Riders, you&apos;re the one calling the shots.</p>
                 </div>
 
                 <div className="col-md-4">

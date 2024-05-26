@@ -22,7 +22,7 @@ function Nav() {
     <nav className={`navbar navbar-expand-lg navbar-light fixed-top ${scrolled ? 'bg-dark' : 'bg-light'}`}>
       <div className="container">
         <Link className="navbar-brand text-uppercase" href="/home">
-          The Ri<span className={styles.logoText}>ders</span>
+          <span className='whitesmoke'>The Ri</span><span className={styles.logoText}>ders</span>
         </Link>
 
         <button

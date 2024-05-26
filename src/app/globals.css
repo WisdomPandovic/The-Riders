@@ -68,6 +68,10 @@ body{
   font-size: 12px;
 }
 
+.whitesmoke{
+  color:#7D5701;
+}
+
 @media (max-width: 576px) {
   .contact-text h2{
     font-size: 2rem;

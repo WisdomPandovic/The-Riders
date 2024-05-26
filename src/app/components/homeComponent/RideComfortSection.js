@@ -59,7 +59,7 @@ const RideComfortSection = () => {
               height={400}  
               layout="responsive" />
             <div className={styles.overlayText}>
-              Embark on a journey of serenity with our team of experienced drivers. From the moment you step into our vehicles, you'll feel the difference in comfort and care.
+              Embark on a journey of serenity with our team of experienced drivers. From the moment you step into our vehicles, you&apos;ll feel the difference in comfort and care.
             </div>
           </div>
         </div>

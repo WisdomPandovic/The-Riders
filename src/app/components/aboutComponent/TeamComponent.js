@@ -63,11 +63,11 @@ const TeamComponent = () => {
         { id: 1, name: 'John Doe', image: '/images/riders-team-member-2.jpg' },
         { id: 2, name: 'Jane Smith', image: '/images/riders-team-member.jpg' },
         { id: 3, name: 'Mike Johnson', image: '/images/riders-team-member-3.jpg' },
-        { id: 4, name: 'Emily Brown', image: '/images/riders-team-member.jpg' },
-        { id: 5, name: 'Johnny Doe', image: '/images/riders-team-member.jpg' },
-        { id: 6, name: 'Jane Smith', image: '/images/riders-team-member.jpg' },
-        { id: 7, name: 'Mike Johnson', image: '/images/riders-team-member.jpg' },
-        { id: 8, name: 'Emily Brown', image: '/images/riders-team-member.jpg' }
+        { id: 4, name: 'Emily Brown', image: '/images/riders-team-member-4.jpg' },
+        { id: 5, name: 'Johnny Doe', image: '/images/riders-team-member-5.jpg' },
+        { id: 6, name: 'Jane Smith', image: '/images/riders-team-member-6.jpg' },
+        { id: 7, name: 'Mike Johnson', image: '/images/riders-team-member-7.jpg' },
+        { id: 8, name: 'Emily Brown', image: '/images/riders-team-member-8.jpg' }
     ];
 
     const [teamMembers, setTeamMembers] = useState(initialTeamMembers);

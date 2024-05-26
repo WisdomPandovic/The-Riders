@@ -28,15 +28,24 @@ const SpecialBooking = () => {
         // Check if the user is logged in
         const checkLoggedIn = async () => {
             const token = localStorage.getItem('token');
+            console.log('Token:', token);
             if (token) {
                 setIsLoggedIn(true);
             } else {
                 setIsLoggedIn(false);
             }
+            console.log(isLoggedIn)
         };
 
         checkLoggedIn();
     }, []);
+
+    useEffect(() => {
+        // Perform actions that rely on the user being logged in
+        console.log('User is logged in:', isLoggedIn);
+        // You can also fetch data or perform other operations here
+    }, [isLoggedIn]);
+    
 
     useEffect(() => {
         // Fetch vehicle data from the backend API

@@ -75,7 +75,7 @@ const ServiceFocusComponent = () => {
             />
           </div>
           <h2 className="mt-2">By Hours Trips</h2>
-          <p className="gray-dark">Your schedule require a certain hours? We'll be flexible with your needs with its hourly Service chauffeur</p>
+          <p className="gray-dark">Your schedule require a certain hours? We&apos;ll be flexible with your needs with its hourly Service chauffeur</p>
         </div>
       </div>
     </div>

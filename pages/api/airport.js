@@ -91,9 +91,13 @@ const handler = async (req, res) => {
 };
 
 export default (req, res) => {
-  verifyToken(req, res, () => {
-    isAdmin(req, res, () => {
-      handler(req, res);
+  if (req.method === 'POST') {
+    verifyToken(req, res, () => {
+      isAdmin(req, res, () => {
+        handler(req, res);
+      });
     });
-  });
+  } else {
+    handler(req, res);
+  }
 };

@@ -78,7 +78,7 @@ const CreateReview = () => {
       <h2>Write a Review</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label className="form-label">Name</label>
+          <label className="form-label">Name<span class="text-danger">*</span></label>
           <input
             type="text"
             value={name}
@@ -106,7 +106,7 @@ const CreateReview = () => {
           />
         </div> */}
         <div className="mb-3">
-          <label className="form-label">Taxi Experience</label>
+          <label className="form-label">Taxi Experience<span class="text-danger">*</span></label>
           <textarea
             value={taxiExperience}
             onChange={(e) => setTaxiExperience(e.target.value)}
@@ -116,7 +116,7 @@ const CreateReview = () => {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Rating</label>
+          <label className="form-label">Rating<span class="text-danger">*</span></label>
           <div className={styles.starRating}>
             {[...Array(5)].map((star, index) => {
               index += 1;

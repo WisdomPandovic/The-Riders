@@ -1,7 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
+mongoose.models = {};
 import SpecialRequestBooking from '../../src/app/models/specialRequestBooking'; 
 import User from '../../src/app/models/user';
+import Vehicle from '../../src/app/models/vehicle'; 
+import Airport from '../../src/app/models/airport'; 
+import sendConfirmationEmail from '../../src/utils/emailService';
 
 const app = express();
 
@@ -52,6 +56,17 @@ export default async function handler(req, res) {
             //     await user.save();
             // }
 
+           // Fetch vehicle and airport names based on IDs
+      const fetchedVehicle = await Vehicle.findById(vehicle);
+      const fetchedAirport = await Airport.findById(airport);
+
+      if (!fetchedVehicle || !fetchedAirport) {
+        return res.status(400).json({ message: 'Invalid vehicle or airport ID' });
+      }
+
+      const vehicleName = fetchedVehicle.name;
+      const airportName = fetchedAirport.name;
+
             // Proceed with the booking creation
             const newSpecialRequestBooking = new SpecialRequestBooking({
                 name, // Use user's _id for the booking
@@ -71,6 +86,29 @@ export default async function handler(req, res) {
 
             // Save the booking to the database
             const savedSpecialRequestBooking = await newSpecialRequestBooking.save();
+
+          // Send a confirmation email
+      const emailSubject = 'Ride Booking Confirmation';
+      const emailText = `Hello ${name},\n\nYour ride has been successfully booked. Here are the details:\n\nName: ${name}
+Email: ${email}
+Phone: ${phone}
+Vehicle: ${vehicleName}
+Airport: ${airportName}
+Pickup Location: ${pickupLocation}
+Drop Off Location: ${dropOffLocation}
+Flight Number: ${flightNumber}
+Pickup Date: ${pickupDate}
+Pickup Time: ${pickupTime}
+Duration (Hours): ${durationInHours}
+Request Type: ${requestType}
+Status: ${status}`;
+
+      try {
+        await sendConfirmationEmail (email, emailSubject, emailText);
+        console.log('Confirmation email sent successfully');
+      } catch (error) {
+        console.error('Error sending confirmation email:', error);
+      }
 
             // Respond with a success message and the created booking object
             res.status(201).json({ message: 'Booking created successfully!', specialRequestBooking: savedSpecialRequestBooking });
