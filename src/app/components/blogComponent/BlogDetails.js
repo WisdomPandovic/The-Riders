@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, useSearchParams } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 function BlogDetails() {
