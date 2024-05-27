@@ -1,0 +1,8 @@
+{
+    "functions": {
+      "api/contact": {
+        "maxDuration": 30 
+      }
+    }
+  }
+  
