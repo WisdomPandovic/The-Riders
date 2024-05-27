@@ -20,6 +20,29 @@ const BookingForm = () => {
 
     const [vehicles, setVehicles] = useState([]);
     const [airports, setAirports] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // Check if the user is logged in
+        const checkLoggedIn = async () => {
+            const token = localStorage.getItem('token');
+            console.log('Token:', token);
+            if (token) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+            console.log(isLoggedIn)
+        };
+
+        checkLoggedIn();
+    }, []);
+
+    useEffect(() => {
+        // Perform actions that rely on the user being logged in
+        console.log('User is logged in:', isLoggedIn);
+        // You can also fetch data or perform other operations here
+    }, [isLoggedIn]);
 
     useEffect(() => {
         // Fetch vehicle data from the backend API
@@ -56,6 +79,13 @@ const BookingForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!isLoggedIn) {
+            // Display message prompting user to sign up
+            toast.error('You must be a member to book a ride. Please sign up.');
+            return;
+        }
+
         console.log('Form submitted with data:', formData);
 
         try {
@@ -75,6 +105,7 @@ const BookingForm = () => {
             console.log('Booking created successfully:', data);
             toast.success('Booking created successfully');
             toast.info('Booking created successfully. You will receive a confirmation message via email shortly.');
+            setFormData({ name: '', email: '', phone: '', vehicle: '', airport: '', pickupLocation: '', dropOffLocation: '', flightNumber: '', pickupDate: '', pickupTime: ''});
         } catch (error) {
             console.error('Error creating booking:', error.message);
             toast.error('Error creating booking:', error.message);

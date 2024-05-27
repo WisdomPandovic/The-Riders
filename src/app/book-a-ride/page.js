@@ -40,7 +40,7 @@ function page() {
           <div className="col-md-8">
             <h2>Book a ride for your special need.</h2>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 mb-3">
             <SpecialBooking />
           </div>
           <div className="col-md-6 d-flex justify-content-center align-items-center">
