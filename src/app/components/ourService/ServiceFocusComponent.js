@@ -41,7 +41,7 @@ const ServiceFocusComponent = () => {
       <h2 className={styles.customColorGray}>Our Service</h2>
       <p className={styles.customIconColor}>Focus on safety, wherever you go</p>
       <div className="row mt-4">
-        <div className="col-md-4">
+        <div className="col-md-4 mb-3">
           <div className={styles.imageContainer}>
             <Image 
               src="/images/airport.jpg" 
@@ -53,7 +53,7 @@ const ServiceFocusComponent = () => {
           <h2 className="mt-2">Airport Transfer</h2>
           <p className="gray-dark">With additional wait time and flight tracking in case of delays, our service is optimized to make every airport transfer a breeze</p>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-3">
           <div className={styles.imageContainer}>
             <Image 
               src="/images/chauffeur-2.jpg" 
@@ -65,7 +65,7 @@ const ServiceFocusComponent = () => {
           <h2 className="mt-2">Full-Day Chauffeur</h2>
           <p className="gray-dark">The finest car and best chauffeur at your service to take you anywhere for up to 12 hours.</p>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-3">
           <div className={styles.imageContainer}>
             <Image 
               src="/images/chauffeur-3.jpg" 

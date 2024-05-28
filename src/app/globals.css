@@ -10,7 +10,7 @@ body{
   font-family: "Outfit", Sans-serif;
 }
 
-.contact-text h2{
+.contact-text h2, .book-a-ride h2{
   font-family: "Outfit", Sans-serif;
   font-size: 3rem;
   font-weight: 700;
@@ -76,6 +76,12 @@ body{
   .contact-text h2{
     font-size: 2rem;
     line-height: 36px;
+  }
+
+  .book-a-ride h2{
+    font-size: 2rem;
+    line-height: 36px;
+    text-align: center;
   }
 
   .copyright h2 {

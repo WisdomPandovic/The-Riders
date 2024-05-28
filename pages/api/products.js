@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 // import Product from '../../src/app/models/product'; // Import your product model
 import multer from 'multer';
 import fs from 'fs';
+import connectToDatabase from '../../lib/mongodb';
 
 // Create an instance of the Express application
 const app = express();
@@ -48,17 +49,17 @@ upload.fields([
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 
 // Connect to MongoDB
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/rider_app');
-    console.log('MongoDB connected successfully');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1); // Exit the process on failure
-  }
-};
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect('mongodb://localhost:27017/rider_app');
+//     console.log('MongoDB connected successfully');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//     process.exit(1); // Exit the process on failure
+//   }
+// };
 
-connectDB();
+// connectDB();
 
 // Export configuration for the API route
 export const config = {
@@ -69,6 +70,8 @@ export const config = {
 
 async function handler(req, res) {
   console.log('Handler function called.'); // Log when the handler function is called
+  await connectToDatabase();
+  
   try {
     switch (req.method) {
       case 'GET':

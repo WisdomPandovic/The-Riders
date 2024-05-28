@@ -38,8 +38,8 @@ function page() {
               <FaCalendarAlt size={80} className="customIconColor" />
             </div>
             <div className="text mt-3 mb-3 customIconColor">Phone</div>
-            <p className="customColorGray">000 000 000 000</p>
-            <p className="customColorGray">000 000 000 000</p>
+            <p className="customColorGray">+234 800 800 800</p>
+            <p className="customColorGray">+562 300 300 300</p>
           </div>
 
         </div>

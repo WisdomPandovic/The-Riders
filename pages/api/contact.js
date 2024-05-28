@@ -2,24 +2,27 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Contact  from '../../src/app/models/contact'; 
 import sendConfirmationEmail from '../../src/utils/emailService';
+import connectToDatabase from '../../lib/mongodb';
 
 const app = express();
 app.use(express.json());
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/rider_app');
-    console.log('MongoDB connected successfully');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1); // Exit the process on failure
-  }
-};
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect('mongodb://localhost:27017/rider_app');
+//     console.log('MongoDB connected successfully');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//     process.exit(1); // Exit the process on failure
+//   }
+// };
 
 // Call the connectDB function once at the beginning of your API route file
-connectDB();
+// connectDB();
 
 export default async function handler(req, res) {
+  await connectToDatabase();
+
   if (req.method === 'POST') {
     try {
       const { name, email, message } = req.body;

@@ -4,22 +4,25 @@ mongoose.models = {};
 import SpecialRequestBooking from '../../src/app/models/specialRequestBooking';
 import User from '../../src/app/models/user';
 import sendConfirmationEmail from '../../src/utils/emailService';
+import connectToDatabase from '../../lib/mongodb';
 
 const app = express();
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/rider_app');
-    console.log('MongoDB connected successfully');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1); // Exit the process on failure
-  }
-};
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect('mongodb://localhost:27017/rider_app');
+//     console.log('MongoDB connected successfully');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//     process.exit(1); // Exit the process on failure
+//   }
+// };
 
-connectDB();
+// connectDB();
 
 export default async function handler(req, res) {
+  await connectToDatabase();
+
   console.log('Request Body:', req.body); // Log the request body to see its content
   if (req.method === 'POST') {
     try {

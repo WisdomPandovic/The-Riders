@@ -5,6 +5,8 @@ import Review from '../../src/app/models/review';
 import User from '../../src/app/models/user';
 import multer from 'multer';
 import fs from 'fs';
+import sendConfirmationEmail from '../../src/utils/emailService';
+import connectToDatabase from '../../lib/mongodb';
 
 // Create an Express app
 const app = express();
@@ -34,17 +36,17 @@ const upload = multer({
 app.use('/uploads', express.static(path.join(__dirname, '..', '..', '..', 'public', 'uploads')));
 
 // Connect to MongoDB
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/rider_app');
-    console.log('MongoDB connected successfully');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1); // Exit the process on failure
-  }
-};
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect('mongodb://localhost:27017/rider_app');
+//     console.log('MongoDB connected successfully');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//     process.exit(1); // Exit the process on failure
+//   }
+// };
 
-connectDB();
+// connectDB();
 
 // Configure API endpoint
 export const config = {
@@ -54,6 +56,8 @@ export const config = {
   };
 
   export default async function handler(req, res) {
+    await connectToDatabase();
+
     try {
         switch (req.method) {
             case 'GET':
@@ -98,6 +102,17 @@ export const config = {
                     });
                     
                     const savedNewReview = await newReview.save();
+
+                     // Send a confirmation email
+            const emailSubject = 'Review Form Submission';
+            const emailText = `Hello ${name},\n\nThank you for your review. We have received your message.\n\nBest regards,\nThe Riders Team`;
+      
+            try {
+              await sendConfirmationEmail(email, emailSubject, emailText);
+              console.log('Confirmation email sent successfully');
+            } catch (error) {
+              console.error('Error sending confirmation email:', error);
+            }
                     
                     res.status(201).json({ message: 'Review sent successfully!', newReview: savedNewReview });
                 });
