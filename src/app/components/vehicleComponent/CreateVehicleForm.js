@@ -95,7 +95,7 @@ const CreateVehicleForm = () => {
       <input type="text" id="amenities" name="amenities" value={amenities} onChange={(e) => setAmenities(e.target.value)} required className={styles.myInputClass} />
 
       <label htmlFor="image">Upload Image</label>
-      <input type="file" id="image" name="image" onChange={handleImageChange} required className={styles.myInputClass} />
+      <input type="file" id="image" name="image" onChange={handleImageChange}  className={styles.myInputClass} />
       <button type="submit" className={styles.myButton}>Create Vehicle</button>
     </form>
   );

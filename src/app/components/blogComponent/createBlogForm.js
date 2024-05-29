@@ -89,7 +89,7 @@ const CreateBlogForm = () => {
       <input type="text" id="tags" name="tags" value={tags} onChange={(e) => setTags(e.target.value)} className={styles.myInputClass} />
 
       <label htmlFor="image">Upload Image</label>
-      <input type="file" id="image" name="image" onChange={handleImageChange} required className={styles.myInputClass} />
+      <input type="file" id="image" name="image" onChange={handleImageChange} className={styles.myInputClass} />
       <button type="submit" className={styles.myButton}>Create Blog</button>
     </form>
   );

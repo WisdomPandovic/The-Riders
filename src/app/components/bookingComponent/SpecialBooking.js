@@ -28,13 +28,13 @@ const SpecialBooking = () => {
         // Check if the user is logged in
         const checkLoggedIn = async () => {
             const token = localStorage.getItem('token');
-            console.log('Token:', token);
+            // console.log('Token:', token);
             if (token) {
                 setIsLoggedIn(true);
             } else {
                 setIsLoggedIn(false);
             }
-            console.log(isLoggedIn)
+            // console.log(isLoggedIn)
         };
 
         checkLoggedIn();
@@ -42,7 +42,7 @@ const SpecialBooking = () => {
 
     useEffect(() => {
         // Perform actions that rely on the user being logged in
-        console.log('User is logged in:', isLoggedIn);
+        // console.log('User is logged in:', isLoggedIn);
         // You can also fetch data or perform other operations here
     }, [isLoggedIn]);
     
@@ -89,7 +89,7 @@ const SpecialBooking = () => {
             return;
         }
         
-        console.log('Form submitted with data:', formData);
+        // console.log('Form submitted with data:', formData);
 
         try {
             const response = await fetch('/api/specialRequestBooking', {
