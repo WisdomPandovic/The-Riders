@@ -4,17 +4,17 @@ import jwt from 'jsonwebtoken';
 import User from '../../src/app/models/user';
 import connectToDatabase from '../../lib/mongodb';
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/rider_app');
-    console.log('MongoDB connected successfully');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1);
-  }
-};
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect('mongodb://localhost:27017/rider_app');
+//     console.log('MongoDB connected successfully');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//     process.exit(1);
+//   }
+// };
 
-connectDB();
+// connectDB();
 
 const generateToken = (user) => {
   const secret = process.env.JWT_SECRET_KEY; // Ensure this line correctly accesses the environment variable
@@ -29,7 +29,7 @@ const generateToken = (user) => {
 };
 
 export default async function handler(req, res) {
-  // await connectToDatabase();
+  await connectToDatabase();
   
   if (req.method === 'GET') {
     try {

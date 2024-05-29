@@ -5,7 +5,7 @@ import Blog from '../../src/app/models/blog';
 import multer from 'multer';
 import fs from 'fs';
 import { verifyToken,isAdmin } from '../../src/middleware/authMiddleware';
-import connectToDatabase from '../../lib/mongodb';
+// import connectToDatabase from '../../lib/mongodb';
 
 const app = express();
 
@@ -34,17 +34,17 @@ upload.fields([
 
 app.use('/uploads', express.static(path.join(__dirname, '..', '..', '..', 'public', 'uploads')));
 
-// const connectDB = async () => {
-//   try {
-//     await mongoose.connect('mongodb://localhost:27017/rider_app');
-//     console.log('MongoDB connected successfully');
-//   } catch (error) {
-//     console.error('Error connecting to MongoDB:', error);
-//     process.exit(1); // Exit the process on failure
-//   }
-// };
+const connectDB = async () => {
+  try {
+    await mongoose.connect('mongodb://localhost:27017/rider_app');
+    console.log('MongoDB connected successfully');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    process.exit(1); // Exit the process on failure
+  }
+};
 
-// connectDB();
+connectDB();
 
 export const config = {
   api: {
@@ -54,7 +54,7 @@ export const config = {
 
 async function handler(req, res) {
   console.log('Handler function called.');
-  await connectToDatabase();
+  // await connectToDatabase();
   try {
     switch (req.method) {
       case 'GET':
