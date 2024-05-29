@@ -1,4 +1,4 @@
-import CreateVehicleForm from "../components/vehicleComponent/CreateVehicleForm";
+import CreateVehicleForm from "../../components/vehicleComponent/CreateVehicleForm";
 
 function page() {
     return(

@@ -6,7 +6,7 @@ const blogSchema = new mongoose.Schema({
     header: { type: String, required: true },
     content: { type: String, required: true },
     tags: [{ type: String }],
-    image: { type: String },
+    image: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     published: { type: Boolean, default: false }
