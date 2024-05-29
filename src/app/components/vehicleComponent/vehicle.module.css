@@ -1,0 +1,46 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .inputWrapper {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .myInputClass {
+    width: 100%;
+    border: 2px solid #B99470 !important;
+    background-color: transparent !important;
+    color: #353535;
+    border-radius: 5px !important;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .myTextareaClass {
+    width: 100%;
+    border: 2px solid #B99470 !important;
+    background-color: transparent !important;
+    color: #353535;
+    border-radius: 5px !important;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 200px;
+  }
+  
+  .myButton {
+    background-color: #B99470;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .customIconColor {
+    color: #B99470;
+  }
