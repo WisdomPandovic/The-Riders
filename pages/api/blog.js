@@ -52,7 +52,7 @@ export const config = {
   }
 };
 
-async function handler(req, res) {
+const handler = async (req, res) => {
   console.log('Handler function called.');
   await connectToDatabase();
   try {
