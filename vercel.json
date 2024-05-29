@@ -2,7 +2,7 @@
   "functions": {
     "pages/api/**/*.js": {
       "maxDuration": 60,
-      "runtime": "vercel/node@20.x"
+      "runtime": "vercel/node@20"
     }
   }
 }
