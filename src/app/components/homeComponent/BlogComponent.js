@@ -56,9 +56,11 @@ const BlogComponent = () => {
           </div>
         ))}
 
-        {/* <div className="col-lg-4 col-md-6 mb-3">
+        <div className="col-lg-4 col-md-6 mb-3">
           <div className={styles.card}>
-            <Image src="/images/pix3.jpg" alt="Blog Post 1" className={styles.cardImg} />
+            <Image src="/images/pix8.jpg" alt="Blog Post 1" width={100}
+            height={300}
+            layout="responsive" className={styles.cardImg} />
             <div className={`${styles.cardBody} p-3`}>
               <h5 className={`${styles.cardTitle} `}>Top 10 Travel Destinations in 2022</h5>
               <p className={`${styles.cardText} mb-4 `}>Explore breathtaking landscapes, vibrant cultures, and hidden gems in these must-visit destinations worldwide.</p>
@@ -69,7 +71,9 @@ const BlogComponent = () => {
 
         <div className="col-lg-4 col-md-6 mb-3">
           <div className={styles.card}>
-            <Image src="/images/pix2.jpg" alt="Blog Post 2" className={styles.cardImg} />
+            <Image src="/images/pix7.jpg" alt="Blog Post 2" width={100}
+            height={300}
+            layout="responsive" className={styles.cardImg} />
             <div className={`${styles.cardBody} p-3`}>
               <h5 className={styles.cardTitle}>The Rise of Remote Work: Trends and Challenges</h5>
               <p className={`${styles.cardText} mb-4 `}>Discover the evolution of remote work, its impact on industries, and strategies for successful adaptation.</p>
@@ -80,14 +84,16 @@ const BlogComponent = () => {
 
         <div className="col-lg-4 col-md-12 mb-3">
           <div className={styles.card}>
-            <Image src="/images/pix2.jpg" alt="Blog Post 3" className={styles.cardImg} />
+            <Image src="/images/pix5.jpg" alt="Blog Post 3" width={100}
+            height={300}
+            layout="responsive" className={styles.cardImg} />
             <div className={`${styles.cardBody} p-3`}>
               <h5 className={styles.cardTitle}>Navigating the Digital Transformation: Tips for Businesses</h5>
               <p className={`${styles.cardText} mb-4 `}>Learn how businesses are embracing digital transformation, overcoming obstacles, and staying competitive in the digital age.</p>
             </div>
             <a className="nav-link mb-3 p-3" href=""><p>Read More  <AiOutlineArrowRight size={20} color="red" /></p> </a>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

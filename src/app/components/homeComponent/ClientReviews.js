@@ -29,46 +29,52 @@ const ClientReviews = () => {
       <h2 className={styles.customColorGray}>What our clients say about us</h2>
       <div className="row mt-5">
         <div className="col-lg-4 col-md-12 mb-3">
-          <Image src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} width={100}  
-            height={400} 
+          <Image src="/images/riders-photos (1).jpg" alt="Client" className={styles.clientImage} width={100}
+            height={400}
             layout="responsive" />
         </div>
         <div className="col-lg-8 col-md-12">
-          {/* <div className='row mb-2 review-desc'>
+          <div className='row mb-2 review-desc'>
             <div className="col-md-2 mt-3">
-              <img src="/images/customer-photos (4).jpg" alt="Client" className={styles.clientImages} />
-              <p className={styles.customColorGray}>Paul Ghajmin</p>
+              <Image src="/images/customer-photos (4).jpg" alt="Client" width={50}
+                height={50}
+                layout="fixed" className={styles.clientImages} />
+              <p className={styles.customColorGray}>Sarah Ghajmin</p>
             </div>
             <div className="col-md-10 ">
               <div className={styles.clientReview}>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <p>"I had an outstanding experience with this taxi service. The driver arrived promptly at the scheduled pickup time and was extremely courteous and professional throughout the journey. The vehicle was clean and well-maintained, providing a comfortable ride."</p>
               </div>
             </div>
           </div>
 
           <div className='row mb-2 review-desc'>
             <div className="col-md-2 mt-3">
-              <img src="/images/customer-photos (2).jpg" alt="Client" className={styles.clientImages} />
-              <p className={styles.customColorGray}>Mahmoud Ali</p>
+              <Image src="/images/customer-photos (2).jpg" alt="Client" width={50}
+                height={50}
+                layout="fixed" className={styles.clientImages} />
+              <p className={styles.customColorGray}>Zara Ali</p>
             </div>
             <div className="col-md-10 ">
               <div className={styles.clientReview}>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <p>"I appreciated the driver's knowledge of the area, as they navigated through traffic efficiently and got me to my destination ahead of schedule. Overall, I highly recommend this taxi service for anyone looking for reliable transportation and excellent customer service."</p>
               </div>
             </div>
           </div>
 
           <div className='row mb-2 review-desc'>
             <div className="col-md-2 mt-3">
-              <Image src="/images/customer-photos (5).jpg" alt="Client" className={styles.clientImages} />
+              <Image src="/images/customer-photos (5).jpg" alt="Client" width={50}
+                height={50}
+                layout="fixed" className={styles.clientImages} />
               <p className={styles.customColorGray}>Malik Berry</p>
             </div>
             <div className="col-md-10 ">
               <div className={styles.clientReview}>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <p>"The app's interface is intuitive, making it incredibly easy to schedule a ride. I appreciated the real-time tracking feature, which allowed me to see exactly when my driver would arrive. Speaking of the driver, he was punctual, courteous, and professional. The car was clean and comfortable, and I felt safe throughout the journey."</p>
               </div>
             </div>
-          </div> */}
+          </div>
 
           {reviews.map((review, index) => (
 
