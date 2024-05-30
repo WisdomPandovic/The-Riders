@@ -43,7 +43,9 @@ const ClientReviews = () => {
             </div>
             <div className="col-md-10 ">
               <div className={styles.clientReview}>
-                <p>"I had an outstanding experience with this taxi service. The driver arrived promptly at the scheduled pickup time and was extremely courteous and professional throughout the journey. The vehicle was clean and well-maintained, providing a comfortable ride."</p>
+                <p>&quot;I had an outstanding experience with this taxi service. The driver arrived promptly
+                   at the scheduled pickup time and was extremely courteous and professional throughout 
+                   the journey. The vehicle was clean and well-maintained, providing a comfortable ride.&quot;</p>
               </div>
             </div>
           </div>
@@ -57,7 +59,9 @@ const ClientReviews = () => {
             </div>
             <div className="col-md-10 ">
               <div className={styles.clientReview}>
-                <p>"I appreciated the driver's knowledge of the area, as they navigated through traffic efficiently and got me to my destination ahead of schedule. Overall, I highly recommend this taxi service for anyone looking for reliable transportation and excellent customer service."</p>
+                <p>&quot;I appreciated the driver&apos;s knowledge of the area, as they navigated through traffic 
+                  efficiently and got me to my destination ahead of schedule. Overall, I highly recommend this 
+                  taxi service for anyone looking for reliable transportation and excellent customer service.&quot;</p>
               </div>
             </div>
           </div>
@@ -71,7 +75,10 @@ const ClientReviews = () => {
             </div>
             <div className="col-md-10 ">
               <div className={styles.clientReview}>
-                <p>"The app's interface is intuitive, making it incredibly easy to schedule a ride. I appreciated the real-time tracking feature, which allowed me to see exactly when my driver would arrive. Speaking of the driver, he was punctual, courteous, and professional. The car was clean and comfortable, and I felt safe throughout the journey."</p>
+                <p> &quot;The app&apos;s interface is intuitive, making it incredibly easy to schedule a ride. I 
+                  appreciated the real-time tracking feature, which allowed me to see exactly when my driver
+                   would arrive. Speaking of the driver, he was punctual, courteous, and professional. 
+                   The car was clean and comfortable, and I felt safe throughout the journey.&quot;</p>
               </div>
             </div>
           </div>
