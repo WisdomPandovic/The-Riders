@@ -2,55 +2,15 @@ import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
 import Ride from '../../src/app/models/ride'; 
-import multer from 'multer';
-import fs from 'fs';
+import upload from '../../muilterConfig';
 import connectToDatabase from '../../lib/mongodb';
+// import connectDB from '../../lib/connectDB';
 
 const app = express();
 
 console.log('__dirname:', __dirname);
 
-// const uploadDirectory = path.join(__dirname, '../../../../uploads');
-// const uploadDirectory = path.join(__dirname, 'public', 'uploads');
-const uploadDirectory = path.join(__dirname, '..', '..', '..', 'public', 'uploads');
-
-
-
-if (!fs.existsSync(uploadDirectory)) {
-  fs.mkdirSync(uploadDirectory, { recursive: true });
-}
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/uploads'); // Destination directory
-  },
-});
-
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit per file
-});
-
-upload.fields([
-  { name: 'image', maxCount: 1 },
-]);
-
-// app.use('/uploads', express.static(path.join(__dirname, '../../../../uploads')));
-// app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 app.use('/uploads', express.static(path.join(__dirname, '..', '..', '..', 'public', 'uploads')));
-
-// const connectDB = async () => {
-//   try {
-//     await mongoose.connect('mongodb://localhost:27017/rider_app');
-//     console.log('MongoDB connected successfully');
-//   } catch (error) {
-//     console.error('Error connecting to MongoDB:', error);
-//     process.exit(1); // Exit the process on failure
-//   }
-// };
-
-// connectDB();
 
 export const config = {
   api: {
@@ -61,6 +21,7 @@ export const config = {
 async function handler(req, res) {
   console.log('Handler function called.');
   await connectToDatabase();
+  // await connectDB(); 
   
   try {
     switch (req.method) {

@@ -2,22 +2,12 @@ import mongoose from 'mongoose';
 import Airport from '../../src/app/models/airport';
 import { verifyToken, isAdmin } from '../../src/middleware/authMiddleware';
 import connectToDatabase from '../../lib/mongodb';
-
-// const connectDB = async () => {
-//   try {
-//     await mongoose.connect('mongodb://localhost:27017/rider_app');
-//     console.log('MongoDB connected successfully');
-//   } catch (error) {
-//     console.error('Error connecting to MongoDB:', error);
-//     process.exit(1);
-//   }
-// };
-
-// connectDB();
+// import connectDB from '../../lib/connectDB';
 
 
 const handler = async (req, res) => {
   await connectToDatabase();
+  // await connectDB(); 
   
   if (req.method === 'GET') {
     try {
