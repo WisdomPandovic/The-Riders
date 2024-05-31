@@ -2,15 +2,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Contact  from '../../src/app/models/contact'; 
 import sendConfirmationEmail from '../../src/utils/emailService';
-// import connectToDatabase from '../../lib/mongodb';
-import connectDB from '../../lib/connectDB';
+import connectToDatabase from '../../lib/mongodb';
+// import connectDB from '../../lib/connectDB';
 
 const app = express();
 app.use(express.json());
 
 export default async function handler(req, res) {
-  // await connectToDatabase();
-  await connectDB(); 
+  await connectToDatabase();
+  // await connectDB(); 
 
    // Log environment variables to check if they are set correctly
    console.log("Email Username:", process.env.EMAIL_USERNAME ? "Exists" : "Not found");
