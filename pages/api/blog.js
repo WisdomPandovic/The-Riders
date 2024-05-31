@@ -67,7 +67,7 @@ const handler = async (req, res) => {
           if (!title || !author || !header || !content) {
             return res.status(400).json({ message: 'Missing required fields' });
           }
-
+          const fileUrl = `/api/uploads/${req.file.filename}`;
           const newBlog = new Blog({
             title,
             author,
@@ -75,7 +75,7 @@ const handler = async (req, res) => {
             content,
             tags,
             published,
-            image: req.file.filename
+            image: fileUrl,
           });
 
           await newBlog.save();
