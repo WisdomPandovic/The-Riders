@@ -38,12 +38,12 @@ const BlogComponent = () => {
       </div>
 
       <div className="row mt-4">
-
+{/* 
         {blogs.map((blog) => (
           <div className="col-lg-4 col-md-6 mb-3" key={blog._id}>
             <div className={styles.card} >
 
-              <Image src={blog.image} alt="" width={100}
+              <Image src={`/uploads/${blog.image}`} alt="" width={100}
             height={300}
             layout="responsive" className={styles.cardImg}  />
               <div className={`${styles.cardBody} p-3`}>
@@ -56,7 +56,7 @@ const BlogComponent = () => {
               </a>
             </div>
           </div>
-        ))}
+        ))} */}
 
         <div className="col-lg-4 col-md-6 mb-3">
           <div className={styles.card}>

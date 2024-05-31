@@ -33,11 +33,11 @@ const BlogComponent = () => {
             <h2>News & Event</h2>
 
             <div className="row mt-4">
-                {blogs.map((blog) => (
+                {/* {blogs.map((blog) => (
                     <div className="col-lg-4 col-md-6 mb-3" key={blog._id}>
                         <div className={styles.card} >
                         <div className={styles.imageContainer}>
-                            {/* <img src={`/uploads/${blog.image}`} alt="" className={styles.cardImg} /> */}
+                           
                             <Image src={`/uploads/${blog.image}`} alt="" fill objectFit="cover" />
                             </div>
                             <div className={`${styles.cardBody} p-3`}>
@@ -52,7 +52,7 @@ const BlogComponent = () => {
                             </Link>
                         </div>
                     </div>
-                ))}
+                ))} */}
 
                 <div className="col-lg-4 col-md-6 mb-3">
                     <div className={styles.card}>
