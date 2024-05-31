@@ -83,7 +83,7 @@ const ClientReviews = () => {
             </div>
           </div>
 
-          {reviews.map((review, index) => (
+          {/* {reviews.map((review, index) => (
 
             <div className="row mb-2 review-desc" key={index}>
               <div className="col-md-2 mt-3">
@@ -104,7 +104,7 @@ const ClientReviews = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
