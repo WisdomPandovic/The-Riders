@@ -5,8 +5,8 @@ import Review from '../../src/app/models/review';
 import User from '../../src/app/models/user';
 import upload from '../../muilterConfig';
 import sendConfirmationEmail from '../../src/utils/emailService';
-// import connectToDatabase from '../../lib/mongodb';
-import connectDB from '../../lib/connectDB';
+import connectToDatabase from '../../lib/mongodb';
+// import connectDB from '../../lib/connectDB';
 
 const app = express();
 
@@ -21,8 +21,8 @@ export const config = {
   };
 
   export default async function handler(req, res) {
-    // await connectToDatabase();
-    await connectDB(); 
+    await connectToDatabase();
+    // await connectDB(); 
 
     try {
         switch (req.method) {

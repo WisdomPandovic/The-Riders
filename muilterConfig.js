@@ -1,3 +1,5 @@
+// for local storage
+
 // import multer from 'multer';
 // import path from 'path';
 // import fs from 'fs';
@@ -33,6 +35,7 @@
 
 // export default upload;
 
+// for deploy storage
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
