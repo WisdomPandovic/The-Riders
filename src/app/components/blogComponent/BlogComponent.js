@@ -18,6 +18,7 @@ const BlogComponent = () => {
                 data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
                 setBlogs(data);
+                console.log(blogs)
             } catch (error) {
                 console.error("Error fetching products:", error);
             }
