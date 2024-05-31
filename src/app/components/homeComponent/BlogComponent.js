@@ -38,7 +38,7 @@ const BlogComponent = () => {
       </div>
 
       <div className="row mt-4">
-{/* 
+
         {blogs.map((blog) => (
           <div className="col-lg-4 col-md-6 mb-3" key={blog._id}>
             <div className={styles.card} >
@@ -56,7 +56,7 @@ const BlogComponent = () => {
               </a>
             </div>
           </div>
-        ))} */}
+        ))}
 
         <div className="col-lg-4 col-md-6 mb-3">
           <div className={styles.card}>
