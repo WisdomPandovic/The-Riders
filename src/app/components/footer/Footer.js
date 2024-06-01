@@ -31,7 +31,7 @@ const Footer = () => {
 
             if (response.status === 409) {
                 // Handle email already registered
-                toast.error('This email is already subscribed.');
+                toast.error('Looks like you have already subscribed. Thanks for staying connected!');
                 return;
               }
 
