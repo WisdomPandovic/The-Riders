@@ -13,6 +13,15 @@ export default async function handler(req, res) {
     try {
       const { email } = req.body;
 
+      if (!email) {
+        return res.status(400).json({ message: 'Email is required' });
+      }
+
+      const existingSubscription = await Subscription.findOne({ email });
+      if (existingSubscription) {
+        return res.status(409).json({ message: 'Email is already subscribed' });
+      }
+
       const newSubscription = new Subscription({ email });
 
       const savedSubscription = await newSubscription.save();

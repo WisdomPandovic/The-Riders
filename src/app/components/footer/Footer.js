@@ -29,6 +29,12 @@ const Footer = () => {
                 body: JSON.stringify(formData),
             });
 
+            if (response.status === 409) {
+                // Handle email already registered
+                toast.error('This email is already subscribed.');
+                return;
+              }
+
             if (!response.ok) {
                 throw new Error('Failed to Subscribe');
             }
