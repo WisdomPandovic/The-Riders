@@ -134,8 +134,8 @@ const CreateReview = () => {
           </div>
         </div>
         <div className="mb-3">
-          <label className="form-label">Upload Image</label>
-          <input type="file" className="form-control" onChange={handleImageChange} />
+          <label className="form-label">Upload Image<span class="text-danger">*</span></label>
+          <input type="file" className="form-control" required onChange={handleImageChange} />
         </div>
         <button type="submit" className={styles.myButton}>Submit Review</button><br></br>
         <div className={`mt-2 ${styles.myButtonSignup} d-flex text-center justify-content-center`}>
