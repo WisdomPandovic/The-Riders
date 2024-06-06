@@ -15,4 +15,7 @@ const bookingSchema = new mongoose.Schema({
     status: { type: String, enum: ['pending', 'confirmed', 'completed'], default: 'pending' }
   });
 
+// Remove the unique constraint
+bookingSchema.index({ email: 1 }, { unique: false });
+
   module.exports = mongoose.model('Booking', bookingSchema);
