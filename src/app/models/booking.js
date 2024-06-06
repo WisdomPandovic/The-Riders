@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
     name: { type: String, required: true},
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true},
     phone: { type: String, required: true, },
     vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle', required: true },
     airport: { type: mongoose.Schema.Types.ObjectId, ref: 'Airport', required: true },
