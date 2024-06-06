@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 mongoose.models = {};
 import SpecialRequestBooking from '../../src/app/models/specialRequestBooking';
 import User from '../../src/app/models/user';
-import Vehicle from '../../src/app/models/vehicle'; // Assuming there's a Vehicle model
-import Airport from '../../src/app/models/airport'; // Assuming there's an Airport model
+import Vehicle from '../../src/app/models/vehicle'; // Ensure this model exists
+import Airport from '../../src/app/models/airport'; // Ensure this model exists
 import sendConfirmationEmail from '../../src/utils/emailService';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
       console.log('Name:', name); // Log the 'name' property to check its value
 
-      if (!name || !email || !phone || !vehicleId || !pickupLocation || !dropOffLocation || !pickupDate || !pickupTime || !durationInHours || !requestType || !status) {
+      if (!name || !email || !phone || !vehicleId || !airportId || !pickupLocation || !dropOffLocation || !pickupDate || !pickupTime || !durationInHours || !requestType || !status) {
         return res.status(400).json({ message: 'Missing required fields' });
       }
 
@@ -51,23 +51,13 @@ export default async function handler(req, res) {
       const vehicleName = vehicle.name; // Assuming the vehicle model has a 'name' field
       const airportName = airport.name; // Assuming the airport model has a 'name' field
 
-      // Uncomment and adjust the user check and creation if needed
-      // Check if a user with the provided email already exists
-      // let user = await User.findOne({ email });
-
-      // If the user doesn't exist, create a new user
-      // if (!user) {
-      //     user = new User({ name, email, phone });
-      //     await user.save();
-      // }
-
       // Proceed with the booking creation
       const newSpecialRequestBooking = new SpecialRequestBooking({
-        name, // Use user's _id for the booking if implemented
+        name,
         email,
         phone,
-        vehicle: vehicleName, // Use vehicle name instead of ID
-        airport: airportName, // Use airport name instead of ID
+        vehicle: vehicleId, // Store the ID in the booking
+        airport: airportId, // Store the ID in the booking
         pickupLocation,
         dropOffLocation,
         flightNumber,
