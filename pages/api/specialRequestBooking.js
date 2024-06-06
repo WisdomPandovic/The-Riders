@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 mongoose.models = {};
 import SpecialRequestBooking from '../../src/app/models/specialRequestBooking';
 import User from '../../src/app/models/user';
-import Vehicle from '../../src/app/models/vehicle'; // Ensure this model exists
-import Airport from '../../src/app/models/airport'; // Ensure this model exists
+import Vehicle from '../../src/app/models/vehicle'; 
+import Airport from '../../src/app/models/airport'; 
 import sendConfirmationEmail from '../../src/utils/emailService';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
@@ -48,8 +48,8 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Vehicle or Airport not found' });
       }
 
-      const vehicleName = vehicle.name; // Assuming the vehicle model has a 'name' field
-      const airportName = airport.name; // Assuming the airport model has a 'name' field
+      const vehicleName = vehicle.name; 
+      const airportName = airport.name; 
 
       // Proceed with the booking creation
       const newSpecialRequestBooking = new SpecialRequestBooking({
