@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import Contact  from '../../src/app/models/contact'; 
+import Contact  from '../../src/models/contact'; 
 import sendConfirmationEmail from '../../src/utils/emailService';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';

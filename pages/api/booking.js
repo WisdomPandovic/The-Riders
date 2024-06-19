@@ -1,9 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import Booking from '../../src/app/models/booking';
-import User from '../../src/app/models/user';
-import Vehicle from '../../src/app/models/vehicle';
-import Airport from '../../src/app/models/airport';
+import Booking from '../../src/models/booking';
+import User from '../../src/models/user';
+import Vehicle from '../../src/models/vehicle';
+import Airport from '../../src/models/airport';
 import sendConfirmationEmail from '../../src/utils/emailService';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
