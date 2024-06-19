@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import DataTable from 'react-data-table-component';
 import { jwtDecode } from 'jwt-decode';
 import { RotatingLines } from 'react-loader-spinner';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 function Page() {
@@ -18,7 +18,7 @@ function Page() {
         if (!token) {
             // Handle case where token is not found (user not logged in)
             toast.error('You need to login to access this page.');
-            router.push('/users/sign-in');
+            // router.push('/users/sign-in');
             return;
         }
 
