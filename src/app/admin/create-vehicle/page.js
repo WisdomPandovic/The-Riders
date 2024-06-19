@@ -3,7 +3,7 @@ import CreateVehicleForm from "../../../components/vehicleComponent/CreateVehicl
 import { toast } from 'react-toastify';
 import { jwtDecode } from 'jwt-decode';
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { RotatingLines } from 'react-loader-spinner';
 
 function Page() {
