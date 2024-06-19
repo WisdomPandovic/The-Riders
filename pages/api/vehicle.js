@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
-import Vehicle from '../../src/app/models/vehicle';
+import Vehicle from '../../src/models/vehicle';
 import upload from '../../muilterConfig';
 import { verifyToken, isAdmin } from '../../src/middleware/authMiddleware';
 import connectToDatabase from '../../lib/mongodb';

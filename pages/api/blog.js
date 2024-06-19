@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
-import Blog from '../../src/app/models/blog'; 
+import Blog from '../../src/models/blog'; 
 import upload from '../../muilterConfig'; // Import the Multer configuration
 import { verifyToken,isAdmin } from '../../src/middleware/authMiddleware';
 import connectToDatabase from '../../lib/mongodb';
@@ -27,6 +27,7 @@ const handler = async (req, res) => {
   try {
     switch (req.method) {
       case 'GET':
+        console.log('** Retrieved ID from URL:', req.query.id);
         // Check if an ID is provided in the URL parameter
         if (req.query.id) {
           console.log('Fetching blog post with ID:', req.query.id); 

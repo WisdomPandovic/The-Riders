@@ -18,6 +18,7 @@
     "express": "^4.18.3",
     "form-data": "^4.0.0",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "mongoose": "^8.2.1",
     "multer": "^1.4.5-lts.1",
     "multer-s3": "^3.0.1",
@@ -25,8 +26,10 @@
     "nodemailer": "^6.9.13",
     "react": "^18",
     "react-bootstrap": "^2.10.2",
+    "react-data-table-component": "^7.6.2",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-loader-spinner": "^6.1.6",
     "react-toastify": "^10.0.5"
   },
   "devDependencies": {

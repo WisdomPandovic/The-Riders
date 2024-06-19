@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
-import CreateRideForm from "../components/rideComponent/CreateRideForm";
+import CreateRideForm from "../../components/rideComponent/CreateRideForm";
 
 function Page() {
   const [rideDetails, setRideDetails] = useState([]);

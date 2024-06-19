@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 mongoose.models = {};
 import SpecialRequestBooking from '../../src/app/models/specialRequestBooking';
 import User from '../../src/app/models/user';
+import Vehicle from '../../src/app/models/vehicle'; 
+import Airport from '../../src/app/models/airport'; 
 import sendConfirmationEmail from '../../src/utils/emailService';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
@@ -11,7 +13,7 @@ const app = express();
 
 export default async function handler(req, res) {
   await connectToDatabase();
-  // await connectDB(); 
+    // await connectDB(); 
 
   console.log('Request Body:', req.body); // Log the request body to see its content
   if (req.method === 'POST') {
@@ -20,8 +22,8 @@ export default async function handler(req, res) {
         name,
         email,
         phone,
-        vehicle,
-        airport,
+        vehicle: vehicleId,
+        airport: airportId,
         pickupLocation,
         dropOffLocation,
         flightNumber,
@@ -34,26 +36,28 @@ export default async function handler(req, res) {
 
       console.log('Name:', name); // Log the 'name' property to check its value
 
-      if (!name || !email || !phone || !vehicle || !pickupLocation || !dropOffLocation || !pickupDate || !pickupTime || !durationInHours || !requestType || !status) {
+      if (!name || !email || !phone || !vehicleId || !airportId || !pickupLocation || !dropOffLocation || !pickupDate || !pickupTime || !durationInHours || !requestType || !status) {
         return res.status(400).json({ message: 'Missing required fields' });
       }
 
-      // Check if a user with the provided email already exists
-      // let user = await User.findOne({ email });
+      // Fetch vehicle and airport names using their IDs
+      const vehicle = await Vehicle.findById(vehicleId);
+      const airport = await Airport.findById(airportId);
 
-      // // If the user doesn't exist, create a new user
-      // if (!user) {
-      //     user = new User({ name, email, phone });
-      //     await user.save();
-      // }
+      if (!vehicle || !airport) {
+        return res.status(404).json({ message: 'Vehicle or Airport not found' });
+      }
+
+      const vehicleName = vehicle.name; 
+      const airportName = airport.name; 
 
       // Proceed with the booking creation
       const newSpecialRequestBooking = new SpecialRequestBooking({
-        name, // Use user's _id for the booking
+        name,
         email,
         phone,
-        vehicle,
-        airport,
+        vehicle: vehicleId, // Store the ID in the booking
+        airport: airportId, // Store the ID in the booking
         pickupLocation,
         dropOffLocation,
         flightNumber,
@@ -69,7 +73,11 @@ export default async function handler(req, res) {
 
       // Send a confirmation email
       const emailSubject = 'Ride Booking Confirmation';
-      const emailText = `Hello ${name},\n\nYour ride has been successfully booked. Here are the details:\n\n${JSON.stringify(req.body, null, 2)}\n\nThank you for using our service!`;
+      const emailText = `Hello ${name},\n\nYour ride has been successfully booked. Here are the details:\n\n${JSON.stringify({
+        ...req.body,
+        vehicle: vehicleName,
+        airport: airportName
+      }, null, 2)}\n\nThank you for using our service!`;
 
       try {
         await sendConfirmationEmail(email, emailSubject, emailText);

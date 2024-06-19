@@ -1,9 +1,9 @@
-import HeroSection from '../components/homeComponent/HeroSection';
-import FeaturesSection from '../components/homeComponent/FeaturesSection';
-import RideComfortSection from '../components/homeComponent/RideComfortSection';
-import ClientReviews from '../components/homeComponent/ClientReviews';
-import BlogComponent from '../components/homeComponent/BlogComponent';
-import BackgroundTextComponent from '../components/homeComponent/BackgroundTextComponent'
+import HeroSection from '../../components/homeComponent/HeroSection';
+import FeaturesSection from '../../components/homeComponent/FeaturesSection';
+import RideComfortSection from '../../components/homeComponent/RideComfortSection';
+import ClientReviews from '../../components/homeComponent/ClientReviews';
+import BlogComponent from '../../components/homeComponent/BlogComponent';
+import BackgroundTextComponent from '../../components/homeComponent/BackgroundTextComponent'
 
 export default function Home() {
   return (

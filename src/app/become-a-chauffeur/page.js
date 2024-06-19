@@ -1,4 +1,4 @@
-import CreateChauffeurForm from "../components/chauffeurComponent/CreateChauffeurForm";
+import CreateChauffeurForm from "../../components/chauffeurComponent/CreateChauffeurForm";
 import { FaMoneyBillAlt } from 'react-icons/fa'; 
 import { IoMdCalendar } from 'react-icons/io'; 
 import { HiOutlineShieldCheck } from 'react-icons/hi';

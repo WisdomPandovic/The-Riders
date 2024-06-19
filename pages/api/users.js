@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../../src/app/models/user';
+import User from '../../src/models/user';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
 

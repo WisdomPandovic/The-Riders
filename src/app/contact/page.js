@@ -1,4 +1,4 @@
-import CreateContactForm from "../../app/components/contactComponent/CreateContactForm";
+import CreateContactForm from "../../components/contactComponent/CreateContactForm";
 function page() {
   return (
     <div>

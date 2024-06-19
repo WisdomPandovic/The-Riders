@@ -1,7 +1,7 @@
-import BookingForm from "../components/bookingComponent/BookingForm";
-import HeroSection from "../components/bookingComponent/HeroSection";
-import BackgroundTextComponent from "../components/bookingComponent/BackgroundTextComponent";
-import SpecialBooking from "../components/bookingComponent/SpecialBooking";
+import BookingForm from "../../components/bookingComponent/BookingForm";
+import HeroSection from "../../components/bookingComponent/HeroSection";
+import BackgroundTextComponent from "../../components/bookingComponent/BackgroundTextComponent";
+import SpecialBooking from "../../components/bookingComponent/SpecialBooking";
 function page() {
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   const location = 'Abuja, NG'; 

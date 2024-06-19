@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Airport from '../../src/app/models/airport';
+import Airport from '../../src/models/airport';
 import { verifyToken, isAdmin } from '../../src/middleware/authMiddleware';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
