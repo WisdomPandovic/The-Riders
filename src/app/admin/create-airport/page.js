@@ -3,7 +3,7 @@ import CreateAirportForm from "../../../components/airportComponet/CreateAirport
 import { toast } from 'react-toastify';
 import { jwtDecode } from 'jwt-decode';
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { RotatingLines } from 'react-loader-spinner';
 
 function Page() {
