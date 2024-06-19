@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { RotatingLines } from 'react-loader-spinner';
 
-function page() {
+function Page() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
@@ -67,4 +67,4 @@ function page() {
     </div>
   );
 }
-export default page;
+export default Page;
