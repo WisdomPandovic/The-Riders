@@ -14,4 +14,5 @@ const bookingSchema = new mongoose.Schema({
     flightNumber: {type: String},
     status: { type: String, enum: ['pending', 'confirmed', 'completed'], default: 'pending' }
   });
+  
   module.exports = mongoose.model('Booking', bookingSchema);
