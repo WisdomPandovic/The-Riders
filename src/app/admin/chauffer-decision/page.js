@@ -6,7 +6,6 @@ import { jwtDecode } from 'jwt-decode';
 import { RotatingLines } from 'react-loader-spinner';
 import { useRouter } from 'next/navigation';
 
-
 function Page() {
     const [chauffeurs, setChauffeurs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +17,7 @@ function Page() {
         if (!token) {
             // Handle case where token is not found (user not logged in)
             toast.error('You need to login to access this page.');
-            // router.push('/users/sign-in');
+            router.push('/users/sign-in');
             return;
         }
 
@@ -157,7 +156,7 @@ function Page() {
         <div className="container mt-5">
             <div className="text-center pt-3 pb-5">
                 <h3>Admin Only</h3>
-                <p className="customIconColor ">Chauffeur Applications</p>
+                <p className="customIconColor">Chauffeur Applications</p>
             </div>
             {isLoading ? (
                 <div className="text-center">

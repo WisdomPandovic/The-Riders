@@ -3,7 +3,7 @@ import CreateBlogForm from "../../../components/blogComponent/createBlogForm";
 import { toast } from 'react-toastify';
 import { jwtDecode } from 'jwt-decode';
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { RotatingLines } from 'react-loader-spinner';
 
 function Page() {
@@ -14,7 +14,7 @@ function Page() {
     const token = localStorage.getItem('token');
     if (!token) {
       toast.error('You need to login to access this page.');
-      // router.push('/users/sign-in');
+      router.push('/users/sign-in');
       return;
     }
 
