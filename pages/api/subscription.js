@@ -1,6 +1,6 @@
 // app/api/subscriptions.js
 import mongoose from 'mongoose';
-import  Subscription from '../../src/app/models/subscription'; 
+import  Subscription from '../../src/models/subscription'; 
 import sendConfirmationEmail from '../../src/utils/emailService';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';

@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
-import Ride from '../../src/app/models/ride'; 
+import Ride from '../../src/models/ride'; 
 import upload from '../../muilterConfig';
 import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
