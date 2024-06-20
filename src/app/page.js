@@ -19,12 +19,16 @@
 // }
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
 
   // Assuming you're redirecting to "/home"
-  router.push("/home");
+  useEffect(() => {
+    // This ensures the code only runs on the client side
+    router.replace("/home");
+  }, [router]);
 
   return (
     <div className="d-flex flex-column items-center justify-content-center h-screen mb-5 mt-5">
