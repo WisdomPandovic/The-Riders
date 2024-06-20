@@ -37,7 +37,7 @@ function Page() {
                 // Continue with any necessary initialization or data fetching
             } else {
                 toast.error('You do not have permission to access this page.');
-                // Redirect or handle unauthorized access
+                router.push('/home');
             }
         } catch (error) {
             console.error('Error decoding token:', error);

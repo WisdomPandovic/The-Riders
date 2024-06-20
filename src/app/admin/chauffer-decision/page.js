@@ -41,7 +41,7 @@ function Page() {
         // Check if user has admin role (example assumes 'admin' role exists in JWT payload)
         if (!decodedToken.role.includes('Admin')) {
             toast.error('You do not have permission to access this page.');
-            // Redirect or handle unauthorized access
+            router.push('/home');
             return;
         }
 
