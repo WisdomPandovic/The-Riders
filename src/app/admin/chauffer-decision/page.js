@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { toast } from 'react-toastify';
-import DataTable from 'react-data-table-component';
+// import DataTable from 'react-data-table-component';
 import { jwtDecode } from 'jwt-decode';
 import { RotatingLines } from 'react-loader-spinner';
 import { useRouter } from 'next/navigation';
