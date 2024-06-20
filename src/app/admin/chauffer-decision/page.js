@@ -173,7 +173,7 @@ function Page() {
                     />
                 </div>
             ) : chauffeurs.length === 0 ? (
-                <div className="text-center">No chauffeur applications found.</div>
+                <div className="text-center mb-3">No chauffeur applications found.</div>
             ) : (
                 <DataTable
                     columns={columns}
