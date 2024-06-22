@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
 
 export default function ResetPassword() {
   const router = useParams();
@@ -13,18 +11,20 @@ export default function ResetPassword() {
 
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (!token) {
-      setMessage('Invalid token');
+      // setMessage('Invalid token');
+      toast.error('Invalid token');
     }
   }, [token]);
 
   const handleResetPassword = async () => {
 
     if (password !== confirmPassword) {
-      setMessage('Passwords do not match');
+      // setMessage('Passwords do not match');
+      toast.error('Passwords do not match');
       return;
     }
 
@@ -35,15 +35,15 @@ export default function ResetPassword() {
       });
 
       if (response.status === 200) {
-        setMessage('Password reset successfully');
+        // setMessage('Password reset successfully');
         toast.success('Password reset successfully');
       } else {
-        setMessage('Password reset failed');
+        // setMessage('Password reset failed');
         toast.error('Password reset failed')
       }
     } catch (error) {
       console.error('Error resetting password:', error);
-      setMessage('Error resetting password');
+      toast.error('Failed to reset password');
     }
   };
 
@@ -74,9 +74,8 @@ export default function ResetPassword() {
         </div>
         <button type="submit" className='btn btn-warning text-white mt-3'>Reset Password</button>
       </form>
-      {message && <p>{message}</p>}
+      {/* {message && <p>{message}</p>} */}
     </div>
-    <ToastContainer /> 
   </div>
   );
 }
