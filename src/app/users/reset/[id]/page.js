@@ -34,7 +34,7 @@ export default function ResetPassword() {
 
       if (response.status === 200) {
         setMessage('Password reset successfully');
-        toast.success(response.status);
+        toast.success('Password reset successfully');
       } else {
         setMessage('Password reset failed');
         toast.error('Password reset failed')
