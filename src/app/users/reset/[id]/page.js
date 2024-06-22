@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function ResetPassword() {
   const router = useParams();
@@ -33,8 +34,10 @@ export default function ResetPassword() {
 
       if (response.status === 200) {
         setMessage('Password reset successfully');
+        toast.success(response.status);
       } else {
         setMessage('Password reset failed');
+        toast.error('Password reset failed')
       }
     } catch (error) {
       console.error('Error resetting password:', error);

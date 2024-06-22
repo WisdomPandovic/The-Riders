@@ -2,6 +2,7 @@
 'use client'
 import { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function RequestPasswordReset() {
   const [email, setEmail] = useState('');
@@ -12,8 +13,10 @@ export default function RequestPasswordReset() {
     try {
       const response = await axios.post('/api/auth/requestPasswordReset', { email });
       setMessage(response.data.message);
+      toast.success(response.data.message);
     } catch (error) {
       setMessage('Error sending password reset email');
+      toast.error('Error sending password reset email')
     }
   };
 
