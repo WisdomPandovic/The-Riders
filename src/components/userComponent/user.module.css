@@ -27,7 +27,16 @@
     border-radius: 5px;
     padding: 10px;
     width: 100%;
-    /* max-width: 200px; */
+  }
+
+  .signInButton {
+    background-color: #B99470;
+    color: white;
+  }
+
+  .signInButton:hover {
+    background-color: #353535;
+    color: white;
   }
   
   .form {

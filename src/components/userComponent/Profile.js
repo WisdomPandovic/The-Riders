@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import styles from "./user.module.css";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState({
@@ -12,6 +13,9 @@ const Profile = () => {
     role: '',
     image: '',
   });
+
+  const [error, setError] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     // Get token from local storage
@@ -31,14 +35,28 @@ const Profile = () => {
     }
   }, []);
 
+  const handleSignOut = () => {
+    // Clear token and user data from local storage
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    // Redirect to the login page or homepage
+    router.push('/home'); // Change '/login' to your actual login page path
+  };
+
   return (
     <div className="container pb-5">
       <div className="row">
         <div className="col-lg-6 bg-white card d-flex justify-content-center align-items-center mb-2">
-        <div className='p-5'>
-              <div className={styles.imageWrapper}>
-                <Image src="/images/images.png" alt="User Profile" width={200} height={200} className="img-fluid rounded-circle" />
-              </div>
+          <div className='p-5'>
+            <div className={styles.imageWrapper}>
+              <Image src="/images/images.png" alt="User Profile" width={200} height={200} className="img-fluid rounded-circle" />
+            </div>
+          </div>
+          <div className="mb-3">
+              <button className="btn btn-danger me-2" onClick={handleSignOut}>Log Out</button>
+              {/* You can link the Sign In button to the sign-in page */}
+              <button className={`btn ${styles.signInButton}`} onClick={() => router.push('/users/sign-in')}>Sign In</button>
             </div>
         </div>
         <div className="col-lg-6 mb-2">
