@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 export default function ResetPassword() {
   const router = useParams();
@@ -74,6 +76,7 @@ export default function ResetPassword() {
       </form>
       {message && <p>{message}</p>}
     </div>
+    <ToastContainer /> 
   </div>
   );
 }
