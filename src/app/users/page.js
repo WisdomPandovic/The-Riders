@@ -1,5 +1,4 @@
 import CreateUserForm from "../../components/userComponent/CreateUserForm";
-// import UserList from "../components/userComponent/UserList";
 
 function page() {
     return (

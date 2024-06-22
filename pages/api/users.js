@@ -6,12 +6,12 @@ import connectToDatabase from '../../lib/mongodb';
 // import connectDB from '../../lib/connectDB';
 
 const generateToken = (user) => {
-  const secret = process.env.JWT_SECRET_KEY; // Ensure this line correctly accesses the environment variable
+  const secret = process.env.JWT_SECRET_KEY;
   if (!secret) {
     throw new Error('JWT secret is not defined');
   }
   return jwt.sign(
-    { id: user._id, email: user.email, role: user.role  },
+    { id: user._id, name: user.name, phone: user.phone, email: user.email, role: user.role },
     secret, // Use the secret from the environment variables
     { expiresIn: '1h' } // Token expires in 1 hour
   );
@@ -20,7 +20,7 @@ const generateToken = (user) => {
 export default async function handler(req, res) {
   await connectToDatabase();
   // await connectDB(); 
-  
+
   if (req.method === 'GET') {
     try {
       const users = await User.find();
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       const hashedPassword = await bcrypt.hash(password, 10);
 
       // Create a new user
-      const newUser = new User({ name, email, password: hashedPassword, phone, paymentInfo, role,  });
+      const newUser = new User({ name, email, password: hashedPassword, phone, paymentInfo, role, });
       const savedUser = await newUser.save();
 
       res.status(201).json({ message: 'User created successfully!', user: savedUser });
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
   } else if (req.method === 'PUT') {
     try {
       const { email, password } = req.body;
-      
+
       // Check if the user with the provided email exists
       const existingUser = await User.findOne({ email });
       if (!existingUser) {

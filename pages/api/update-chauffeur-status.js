@@ -1,15 +1,15 @@
 import express from 'express';
-// import connectToDatabase from '../../lib/mongodb';
+import connectToDatabase from '../../lib/mongodb';
 import Chauffeur from '../../src/models/chauffeurApplication';
 import sendConfirmationEmail from '../../src/utils/emailService';
-import connectDB from '../../lib/connectDB';
+// import connectDB from '../../lib/connectDB';
 
 const app = express();
 app.use(express.json());
 
 export default async function handler(req, res) {
-//   await connectToDatabase();
-  await connectDB(); 
+  await connectToDatabase();
+  // await connectDB(); 
 
   if (req.method === 'POST') {
     try {

@@ -64,7 +64,6 @@ function CreateUserForm () {
         console.error('Form validation failed:', errors);
       }
     }} className={styles.userForm}>
-         {/* <div className={styles.inputWrapper}> */}
       <label htmlFor="name">Name:</label>
       <input
         type="text"
@@ -88,9 +87,6 @@ function CreateUserForm () {
         placeholder='Enter Email'
       />
       {errors.email && <p className="error">{errors.email}</p>}
-      {/* </div> */}
-
-      {/* <div className={styles.inputWrapper}> */}
       <label htmlFor="name">Password:</label>
       <input
         type="password"
@@ -114,7 +110,6 @@ function CreateUserForm () {
         placeholder='Enter phone no'
       />
       {errors.phone && <p className="error">{errors.phone}</p>}
-      {/* </div> */}
 
       <button type="submit" className={styles.myButton}>Create User</button>
       <div className={`${styles.inputWrapper} mt-3`}>

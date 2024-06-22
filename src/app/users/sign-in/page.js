@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CreateUserForm from "../../../components/userComponent/CreateSigninForm";
 
 function page() {
@@ -7,6 +8,9 @@ function page() {
                 <div className="col-md-6 pb-3">
                     <h3 className="user-header ">Log in</h3>
                     <CreateUserForm />
+                    <div className="d-flex justify-content-end text-dark">
+                        <Link href={`/users/new`} className="nav-link"> Forgot Password? </Link>
+                    </div>
                 </div>
 
                 <div className="col-md-6 pb-3">

@@ -35,3 +35,18 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+.imageWrapper {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}

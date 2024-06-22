@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { FaUserCircle } from 'react-icons/fa'; 
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,9 +54,12 @@ function Nav() {
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`} href="/blog">Blog</Link>
-            </li>
+            </li>     
             <li className="nav-item">
               <Link className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`} href="/contact-us">Contact</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${scrolled ? 'text-white' : 'text-dark'}`} href="/users/profile"> <FaUserCircle size={20} style={{ color: 'dark' }} className="" /></Link>
             </li>
           </ul>
         </div>

@@ -21,6 +21,10 @@ body{
   color: #B99470;
 }
 
+.btn-customIconColor{
+  background-color: #B99470;
+}
+
 .gray-dark{
   color: #353535;
 }
@@ -70,6 +74,10 @@ body{
 
 .whitesmoke{
   color:#7D5701;
+}
+
+.whitesmokes{
+  background-color: #F4F5F9;
 }
 
 @media (max-width: 576px) {

@@ -14,7 +14,7 @@ app.use('/uploads', express.static(path.join(__dirname, '..', '..', '..', 'publi
 // Configure API endpoint
 export const config = {
   api: {
-    bodyParser: false 
+    bodyParser: false
   }
 };
 
@@ -30,50 +30,50 @@ const handler = async (req, res) => {
         return res.json(vehicles);
       case 'POST':
         isAdmin(req, res, async () => {
-        upload.single('image')(req, res, async (err) => {
-          if (err) {
-            console.error('Multer error:', err);
-            return res.status(500).json({ message: 'Error uploading image' });
-          }
+          upload.single('image')(req, res, async (err) => {
+            if (err) {
+              console.error('Multer error:', err);
+              return res.status(500).json({ message: 'Error uploading image' });
+            }
 
-          console.log('Req File:', req.file);
+            console.log('Req File:', req.file);
 
-          if (!req.file) {
-            console.error('No file uploaded');
-            return res.status(400).json({ message: 'No image uploaded' });
-          }
+            if (!req.file) {
+              console.error('No file uploaded');
+              return res.status(400).json({ message: 'No image uploaded' });
+            }
 
-          console.log('File Name:', req.file.originalname);
-          console.log('File Path:', req.file.path);
+            console.log('File Name:', req.file.originalname);
+            console.log('File Path:', req.file.path);
 
-          // Extract vehicle data from request body
-          const { name, type, capacity, passenger, luggage, amenities, available } = req.body;
+            // Extract vehicle data from request body
+            const { name, type, capacity, passenger, luggage, amenities, available } = req.body;
 
-          // Validate required fields
-          if (!name || !type || !capacity || !passenger || !luggage || !amenities) {
-            return res.status(400).json({ message: 'Missing required fields' });
-          }
+            // Validate required fields
+            if (!name || !type || !capacity || !passenger || !luggage || !amenities) {
+              return res.status(400).json({ message: 'Missing required fields' });
+            }
 
-          // Create a new vehicle instance
-          const newVehicle = new Vehicle({
-            name,
-            type,
-            image: req.file.filename,
-            capacity,
-            passenger,
-            luggage,
-            amenities,
-            available
+            // Create a new vehicle instance
+            const newVehicle = new Vehicle({
+              name,
+              type,
+              image: req.file.filename,
+              capacity,
+              passenger,
+              luggage,
+              amenities,
+              available
+            });
+
+            console.log(newVehicle)
+            // Save the new vehicle to the database
+            await newVehicle.save();
+
+            // Send success response
+            return res.status(201).json({ message: 'Vehicle created successfully!' });
           });
-
-          console.log(newVehicle)
-          // Save the new vehicle to the database
-          await newVehicle.save();
-
-          // Send success response
-          return res.status(201).json({ message: 'Vehicle created successfully!' });
         });
-      });
         break;
       default:
         res.status(405).json({ message: 'Method not allowed' });

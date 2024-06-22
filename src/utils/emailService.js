@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 // Function to send email
 const sendConfirmationEmail = (to, subject, text) => {
     const mailOptions = {
-        from: process.env.EMAIL_USERNAME,
+        from: process.env.C,
         to,
         subject,
         text,
