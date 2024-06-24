@@ -2,10 +2,12 @@ import cron from 'node-cron';
 import Booking from '../models/booking';
 import SpecialRequestBooking from '../models/specialRequestBooking';
 import sendEmail from '../utils/emailService';
-import connectDB from '../lib/connectDB';
+import connectToDatabase from '../lib/mongodb';
+// import connectDB from '../lib/connectDB';
 
 async function sendNotificationEmails() {
-    await connectDB();
+    await connectToDatabase();
+    // await connectDB();
 
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
