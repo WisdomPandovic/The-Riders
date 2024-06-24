@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import Airport from '../../src/models/airport';
 import { verifyToken, isAdmin } from '../../src/middleware/authMiddleware';
-// import connectToDatabase from '../../lib/mongodb';
-import connectDB from '../../lib/connectDB';
+import connectToDatabase from '../../lib/mongodb';
+// import connectDB from '../../lib/connectDB';
 
 
 const handler = async (req, res) => {
-  // await connectToDatabase();
-  await connectDB(); 
+  await connectToDatabase();
+  // await connectDB(); 
   
   if (req.method === 'GET') {
     try {
