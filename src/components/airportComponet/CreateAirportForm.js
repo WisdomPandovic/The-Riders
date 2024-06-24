@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './airport.module.css';
 import { toast } from 'react-toastify';
 
