@@ -53,7 +53,7 @@ export default async function handler(req, res) {
       const airportName = airport.name;
 
         // Find an available chauffeur
-        const availableChauffeur = await Chauffeur.findOne({ status: 'active', availability: 'Immediately' });
+        const availableChauffeur = await Chauffeur.findOne({ status: 'active'});
 
         if (!availableChauffeur) {
             return res.status(404).json({ message: 'No available chauffeurs' });
