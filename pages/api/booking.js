@@ -47,12 +47,16 @@ export default async function handler(req, res) {
             const vehicleName = vehicle.name;
             const airportName = airport.name;
 
-             // Find an available chauffeur
-             const availableChauffeur = await Chauffeur.findOne({ status: 'active', availability: 'Immediately' });
+            // Find an available chauffeur
+            const availableChauffeur = await Chauffeur.findOne({ status: 'active', availability: 'Immediately' });
 
-             if (!availableChauffeur) {
-                 return res.status(404).json({ message: 'No available chauffeurs' });
-             }
+            // Log available chauffeurs
+            const chauffeurs = await Chauffeur.find();
+            console.log('All Chauffeurs:', chauffeurs);
+
+            if (!availableChauffeur) {
+                return res.status(404).json({ message: 'No available chauffeurs' });
+            }
 
             // if (userValue) {
             //     try {
@@ -98,9 +102,9 @@ export default async function handler(req, res) {
                     chauffeur: availableChauffeur._id
                 });
 
-               // Mark chauffeur as unavailable
-               availableChauffeur.availability = 'unavailable';
-               await availableChauffeur.save();
+                // Mark chauffeur as unavailable
+                availableChauffeur.availability = 'unavailable';
+                await availableChauffeur.save();
 
                 // Save the booking to the database
                 const savedBooking = await newBooking.save();
