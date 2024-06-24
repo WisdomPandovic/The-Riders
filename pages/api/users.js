@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../../src/models/user';
-// import connectToDatabase from '../../lib/mongodb';
-import connectDB from '../../lib/connectDB';
+import connectToDatabase from '../../lib/mongodb';
+// import connectDB from '../../lib/connectDB';
 
 const generateToken = (user) => {
   const secret = process.env.JWT_SECRET_KEY;
@@ -18,8 +18,8 @@ const generateToken = (user) => {
 };
 
 export default async function handler(req, res) {
-  // await connectToDatabase();
-  await connectDB(); 
+  await connectToDatabase();
+  // await connectDB(); 
 
   if (req.method === 'GET') {
     try {
