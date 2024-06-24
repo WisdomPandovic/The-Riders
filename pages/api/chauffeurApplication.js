@@ -4,8 +4,8 @@ import path from 'path';
 import ChauffeurApplication from '../../src/models/chauffeurApplication';
 import upload from '../../muilterConfig';
 import sendConfirmationEmail from '../../src/utils/emailService';
-import connectToDatabase from '../../lib/mongodb';
-// import connectDB from '../../lib/connectDB';
+// import connectToDatabase from '../../lib/mongodb';
+import connectDB from '../../lib/connectDB';
 
 const app = express();
 
@@ -31,8 +31,8 @@ app.use('/uploads', express.static(path.join(__dirname, '..', '..', '..', 'publi
 // };
 
 async function handler(req, res) {
-  await connectToDatabase();
-  // await connectDB();
+  // await connectToDatabase();
+  await connectDB();
   // console.log('Handler function called.');
 
   try {

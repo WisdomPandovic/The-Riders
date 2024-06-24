@@ -10,6 +10,10 @@ const CreateAirportForm = () => {
   const [facilities, setFacilities] = useState('');
   const [distanceFromCityCenter, setDistanceFromCityCenter] = useState('');
 
+  useEffect(() => {
+    console.log('Component mounted');
+  }, []);
+
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
   //   console.log('Form submitted!');

@@ -20,22 +20,29 @@ const CreateSigninForm = ({ onSignIn }) => {
       return;
     }
 
-    // Perform sign-in logic
-    try {
-      const response = await fetch('/api/users', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+   // Perform sign-in logic
+   try {
+    const response = await fetch('/api/users', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to sign in');
-      }
+    const data = await response.json();
 
-      const data = await response.json();
-
+    if (response.status === 401 && data.message === 'Invalid password') {
+      // Specific handling for invalid password
+      setError('Invalid password');
+      toast.error('Invalid password');
+    } else if (response.status === 404 && data.message === 'User not found') {
+      // Handling for user not found
+      setError('User not found');
+      toast.error('User not found');
+    } else if (!response.ok) {
+      throw new Error(data.message || 'Failed to sign in');
+    } else {
       // Save token and user data in local storage
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
@@ -45,17 +52,17 @@ const CreateSigninForm = ({ onSignIn }) => {
         onSignIn(data.user);
       }
 
-       // Display success toast
-       toast.success('Sign in successful!');
+      // Display success toast
+      toast.success('Sign in successful!');
 
-       router.push('/home');
-
-    } catch (error) {
-      console.error('Error signing in:', error);
-      setError('Failed to sign in. Please try again.');
-      toast.error('Failed to sign in. Please try again.');
+      router.push('/home');
     }
-  };
+  } catch (error) {
+    console.error('Error signing in:', error);
+    setError('Failed to sign in. Please try again.');
+    toast.error('Failed to sign in. Please try again.');
+  }
+};
 
   return (
     <div className={styles.userForm}>

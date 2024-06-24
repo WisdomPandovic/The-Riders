@@ -34,10 +34,11 @@ function Page() {
 
       // Check if user has admin role
       if (decodedToken.role === 'Admin') {
-        // Continue with any necessary initialization or data fetching
+        setIsLoading(false);
       } else {
         toast.error('You do not have permission to access this page.');
         router.push('/home');
+        router.push('/users/sign-in');
       }
     } catch (error) {
       console.error('Error decoding token:', error);
