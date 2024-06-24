@@ -13,7 +13,8 @@ const specialRequestBookingSchema = new mongoose.Schema({
     pickupTime: { type: String, required: true },
     durationInHours: { type: Number, required: true, min: 1, max: 24 }, // Duration in hours, ranging from 1 to 24
     additionalInformation: { type: String },
-    status: { type: String, enum: ['pending', 'confirmed', 'completed'], default: 'pending' }
+    status: { type: String, enum: ['pending', 'confirmed', 'completed'], default: 'pending' },
+    chauffeur: { type: mongoose.Schema.Types.ObjectId, ref: 'Chauffeur' }
 });
 
 module.exports = mongoose.model('SpecialRequestBooking', specialRequestBookingSchema);

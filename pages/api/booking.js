@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Booking from '../../src/models/booking';
+import Chauffeur from '../../src/models/chauffeur';
 import User from '../../src/models/user';
 import Vehicle from '../../src/models/vehicle';
 import Airport from '../../src/models/airport';
@@ -12,8 +13,8 @@ const app = express();
 
 export default async function handler(req, res) {
     await connectToDatabase();
-    // await connectDB(); 
-    
+    // await connectDB();
+
     if (req.method === 'POST') {
         try {
             // let userValue = req.body.user; 
@@ -35,16 +36,16 @@ export default async function handler(req, res) {
                 return res.status(400).json({ message: 'Missing required fields' });
             }
 
-              // Fetch vehicle and airport names using their IDs
-      const vehicle = await Vehicle.findById(vehicleId);
-      const airport = await Airport.findById(airportId);
+            // Fetch vehicle and airport names using their IDs
+            const vehicle = await Vehicle.findById(vehicleId);
+            const airport = await Airport.findById(airportId);
 
-      if (!vehicle || !airport) {
-        return res.status(404).json({ message: 'Vehicle or Airport not found' });
-      }
+            if (!vehicle || !airport) {
+                return res.status(404).json({ message: 'Vehicle or Airport not found' });
+            }
 
-      const vehicleName = vehicle.name; 
-      const airportName = airport.name; 
+            const vehicleName = vehicle.name;
+            const airportName = airport.name;
 
             // if (userValue) {
             //     try {
@@ -79,8 +80,8 @@ export default async function handler(req, res) {
                     name, // Assign userValue instead of user
                     email,
                     phone,
-                    vehicle: vehicleId, 
-                    airport: airportId, 
+                    vehicle: vehicleId,
+                    airport: airportId,
                     pickupLocation,
                     dropOffLocation,
                     flightNumber,
@@ -89,16 +90,25 @@ export default async function handler(req, res) {
                     status
                 });
 
+                // Assign an available chauffeur
+                const availableChauffeur = await Chauffeur.findOne({ status: 'available' });
+                if (!availableChauffeur) {
+                    return res.status(404).json({ message: 'No available chauffeurs' });
+                }
+                newBooking.chauffeur = availableChauffeur._id;
+                availableChauffeur.status = 'unavailable'; // Mark chauffeur as unavailable
+                await availableChauffeur.save();
+
                 // Save the booking to the database
                 const savedBooking = await newBooking.save();
 
                 // Send a confirmation email
-      const emailSubject = 'Ride Booking Confirmation';
-      const emailText = `Hello ${name},\n\nYour ride has been successfully booked. Here are the details:\n\n${JSON.stringify({
-        ...req.body,
-        vehicle: vehicleName,
-        airport: airportName
-      }, null, 2)}\n\nThank you for using our service!`;
+                const emailSubject = 'Ride Booking Confirmation';
+                const emailText = `Hello ${name},\n\nYour ride has been successfully booked. Here are the details:\n\n${JSON.stringify({
+                    ...req.body,
+                    vehicle: vehicleName,
+                    airport: airportName
+                }, null, 2)}\n\nThank you for using our service!`;
 
                 try {
                     await sendConfirmationEmail(email, emailSubject, emailText);

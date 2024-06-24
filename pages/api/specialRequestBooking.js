@@ -3,17 +3,18 @@ import mongoose from 'mongoose';
 mongoose.models = {};
 import SpecialRequestBooking from '../../src/models/specialRequestBooking';
 import User from '../../src/models/user';
-import Vehicle from '../../src/models/vehicle'; 
-import Airport from '../../src/models/airport'; 
+import Vehicle from '../../src/models/vehicle';
+import Airport from '../../src/models/airport';
+import Chauffeur from '../../src/models/chauffeur';
 import sendConfirmationEmail from '../../src/utils/emailService';
-import connectToDatabase from '../../lib/mongodb';
-// import connectDB from '../../lib/connectDB';
+// import connectToDatabase from '../../lib/mongodb';
+import connectDB from '../../lib/connectDB';
 
 const app = express();
 
 export default async function handler(req, res) {
-  await connectToDatabase();
-    // await connectDB(); 
+  // await connectToDatabase();
+  await connectDB(); 
 
   console.log('Request Body:', req.body); // Log the request body to see its content
   if (req.method === 'POST') {
@@ -48,8 +49,8 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Vehicle or Airport not found' });
       }
 
-      const vehicleName = vehicle.name; 
-      const airportName = airport.name; 
+      const vehicleName = vehicle.name;
+      const airportName = airport.name;
 
       // Proceed with the booking creation
       const newSpecialRequestBooking = new SpecialRequestBooking({
@@ -67,6 +68,15 @@ export default async function handler(req, res) {
         requestType,
         status
       });
+
+      // Assign an available chauffeur
+      const availableChauffeur = await Chauffeur.findOne({ status: 'available' });
+      if (!availableChauffeur) {
+        return res.status(404).json({ message: 'No available chauffeurs' });
+      }
+      newBooking.chauffeur = availableChauffeur._id;
+      availableChauffeur.status = 'unavailable'; // Mark chauffeur as unavailable
+      await availableChauffeur.save();
 
       // Save the booking to the database
       const savedSpecialRequestBooking = await newSpecialRequestBooking.save();
