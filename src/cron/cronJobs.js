@@ -42,6 +42,6 @@ async function sendNotificationEmails() {
 }
 
 // Schedule the task to run at 8 AM every day
-cron.schedule('0 8 * * *', sendNotificationEmails);
+cron.schedule('* * * * *', sendNotificationEmails);
 
 console.log('Cron job scheduled to send notifications at 8 AM every day.');
