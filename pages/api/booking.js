@@ -249,7 +249,7 @@ function scheduleNotificationEmail(booking) {
     const emailText = `Dear ${booking.name},\n\nHere are your booking details for tomorrow:\n\nPickup Location: ${booking.pickupLocation}\nDrop Off Location: ${booking.dropOffLocation}\nPickup Time: ${booking.pickupTime}\n\nThank you for choosing our service!`;
 
     // Schedule the email to be sent tomorrow
-    cron.schedule('0 8 * * *', async () => { // Example: Sends at 8 AM every day
+    cron.schedule('* * * * *', async () => { // Example: Sends at 8 AM every day
         try {
             await sendEmail(booking.email, emailSubject, emailText);
             console.log('Notification email sent successfully');
