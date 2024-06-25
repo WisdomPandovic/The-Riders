@@ -5,7 +5,7 @@ const bookingSchema = new mongoose.Schema({
     email: { type: String, required: true},
     phone: { type: String, required: true, },
     vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle', required: true },
-    airport: { type: mongoose.Schema.Types.ObjectId, ref: 'Airport', required: true },
+    airport: { type: mongoose.Schema.Types.ObjectId, ref: 'Airport', required: false },
     chauffeur: { type: mongoose.Schema.Types.ObjectId, ref: 'Chauffeur' }, 
     bookingDate: { type: Date, default: Date.now },
     pickupDate: { type: Date, required: true },
