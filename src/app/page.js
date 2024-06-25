@@ -12,7 +12,7 @@ export default function Home() {
   }, [router]);
 
   return (
-    <div className="d-flex flex-column items-center justify-content-center h-screen mt-3 mb-5">
+    <div className="d-flex flex-column items-center justify-content-center h-screen mt-5 mb-5">
       <div className="text-center mb-5">
         <h1 className="text-4xl font-bold">Book Your Airport Ride with Ease</h1>
         <p className="text-lg">
